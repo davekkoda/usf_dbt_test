@@ -1,0 +1,17 @@
+usfbm_data_mart:
+
+  target: local
+  outputs:
+    local:
+      type: snowflake
+      threads: 8
+      query_tag: USFBM Data Mart DBT project
+      
+      account: "{{ env_var('SNOW_USFBM_ACCOUNT') }}"
+      user: "{{ env_var('SNOW_USFBM_USERNAME') }}"
+      password: "{{ env_var('SNOW_USFBM_PASSWORD') }}"
+      role: "{{ env_var('SNOW_USFBM_ROLE') }}"
+      
+      warehouse: "{{ env_var('SNOW_USFBM_WAREHOUSE') }}"
+      database: "{{ env_var('SNOW_USFBM_DATABASE') }}"
+      schema: "{{ env_var('SNOW_USFBM_SCHEMA_QA') }}"
