@@ -11,7 +11,7 @@ sources:
         - name: KVI_SUMMARY
         - name: KVI_ADJUSTMENTS
         - name: TS_DRIVER
-        - name: JOB_CODE
+        - name: JOBCODE
         - name: WORKCATEGORY
 
     - name: GOLD_OMNITRACS
