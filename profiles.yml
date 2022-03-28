@@ -19,9 +19,7 @@ usfbm_data_mart:
 
 # -- change schema and db
 
-  target: qa
-  outputs:
-    local:
+    qa:
       type: snowflake
       threads: 8
       query_tag: "QA: USFBM Data Mart DBT project"
@@ -35,9 +33,7 @@ usfbm_data_mart:
       database: "{{ env_var('SNOW_USFBM_DATABASE_DEV') }}"
       schema: "{{ env_var('SNOW_USFBM_SCHEMA_DEV') }}"
 
-  target: prod
-  outputs:
-    local:
+    prod:
       type: snowflake
       threads: 8
       query_tag: "PROD: USFBM Data Mart DBT project "

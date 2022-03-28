@@ -1,9 +1,0 @@
-version: 2
-
-models:
-
-    - name: model_name
-      description: "model_descripction_here"
-      columns:
-          - name: column_name
-            description: "column_description_here"
