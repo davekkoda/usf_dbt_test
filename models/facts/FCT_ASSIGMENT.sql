@@ -2,7 +2,6 @@ WITH source -- the CTE view name
 	AS(
         SELECT SM.WCT_INT_ID
         ,SM.WH_ID
-        ,SM.REPORT_DATE
         ,SM.USR_ID
         ,SM.DIRECT
         ,SM.REPORT_DATE

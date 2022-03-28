@@ -46,5 +46,4 @@ WITH source -- the CTE view name
             , CLNDR_DT_WKAGO
         FROM {{ source('GOLD_XDMADM', 'TIME_CORP') }}
     )
-    )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
