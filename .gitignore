@@ -208,3 +208,5 @@ target/
 dbt_modules/
 logs/
 .vscode/settings.json
+dbt.log
+dbt.log.legacy

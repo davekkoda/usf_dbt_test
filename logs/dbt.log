@@ -611,3 +611,19 @@ Database 'GOLD' does not exist or not authorized.
 17:16:05.032182 [debug] [MainThread]: Parsing macros/select_dev_db.sql
 17:16:05.049716 [debug] [MainThread]: 1603: static parser failed on dimensions/DIM_WORK_CATEGORY.sql
 17:16:05.065992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e5fb0be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e6138f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e6159c40>]}
+
+
+============================== 2022-03-28 17:22:55.868684 | 5757a1ee-a597-48e6-a61b-febc19ae2f16 ==============================
+17:22:55.868684 [info ] [MainThread]: Running with dbt=1.0.3
+17:22:55.870511 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+17:22:55.871028 [debug] [MainThread]: Tracking: tracking
+17:22:55.871689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb8afd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb8afeb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb8af1f0>]}
+17:22:55.984343 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 2 files changed.
+17:22:55.984868 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://macros/select_dev_db.sql
+17:22:55.985418 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.SUPPLY_WAREHOUSE.WAREHOUSE_FACILITY_CONSOLIDATED
+17:22:55.985735 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+17:22:55.986190 [debug] [MainThread]: Partial parsing: updated file: usfbm_data_mart://models/dimensions/DIM_WORK_CATEGORY.sql
+17:22:55.986434 [debug] [MainThread]: Parsing macros/select_dev_db.sql
+17:22:56.002376 [debug] [MainThread]: 1603: static parser failed on dimensions/DIM_WORK_CATEGORY.sql
+17:22:56.016070 [debug] [MainThread]: 1602: parser fallback to jinja rendering on dimensions/DIM_WORK_CATEGORY.sql
+17:22:56.047331 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb9bfcd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb9bfa90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbfdb9bfbb0>]}
