@@ -239,3 +239,375 @@ There are 1 unused configuration paths:
 16:36:15.835452 [debug] [MainThread]: Connection 'master' was properly closed.
 16:36:15.836047 [debug] [MainThread]: Connection 'list_BI_MODERNIZATION_POC_DEV_B3C6026' was properly closed.
 16:36:15.838781 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd68964aa30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd6896fb760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd6896fb520>]}
+
+
+============================== 2022-03-28 16:38:54.497725 | 63ceee2e-13b1-41d0-8029-8ef7d09034bf ==============================
+16:38:54.497725 [info ] [MainThread]: Running with dbt=1.0.3
+16:38:54.500340 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+16:38:54.500939 [debug] [MainThread]: Tracking: tracking
+16:38:54.501539 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1265f460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1265f640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1265fd30>]}
+16:38:54.618673 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 0 files added, 1 files changed.
+16:38:54.619462 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_XDMADM.DIV_CORP
+16:38:54.619807 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_XDMADM.TIME_CORP
+16:38:54.620110 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.SUPPLY_WAREHOUSE.WAREHOUSE_FACILITY_CONSOLIDATED
+16:38:54.620358 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+16:38:54.644303 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.usfbm_data_mart.example
+
+16:38:54.652940 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '63ceee2e-13b1-41d0-8029-8ef7d09034bf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1279b0a0>]}
+16:38:54.666013 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '63ceee2e-13b1-41d0-8029-8ef7d09034bf', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee127739a0>]}
+16:38:54.666501 [info ] [MainThread]: Found 1 model, 2 tests, 0 snapshots, 0 analyses, 179 macros, 0 operations, 0 seed files, 9 sources, 0 exposures, 0 metrics
+16:38:54.668333 [info ] [MainThread]: 
+16:38:54.669430 [debug] [MainThread]: Acquiring new snowflake connection "master"
+16:38:54.670610 [debug] [ThreadPool]: Acquiring new snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:38:54.686967 [debug] [ThreadPool]: Using snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:38:54.687386 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV_B3C6026"} */
+
+    show terse objects in BI_MODERNIZATION_POC_DEV.B3C6026
+16:38:54.687633 [debug] [ThreadPool]: Opening a new connection, currently in state init
+16:38:56.044412 [debug] [ThreadPool]: Snowflake adapter: Got an error when attempting to open a snowflake connection. No retries attempted: '250001 (08001): Failed to connect to DB: usfoods.snowflakecomputing.com:443. Incorrect username or password was specified.'
+16:38:56.044809 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV_B3C6026"} */
+
+    show terse objects in BI_MODERNIZATION_POC_DEV.B3C6026
+16:38:56.045087 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+16:38:56.045405 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+16:38:56.045635 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+16:38:56.045861 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: No close available on handle
+16:38:56.046585 [debug] [MainThread]: Connection 'master' was properly closed.
+16:38:56.046804 [debug] [MainThread]: Connection 'list_BI_MODERNIZATION_POC_DEV_B3C6026' was properly closed.
+16:38:56.048018 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1276efd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1276e790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fee1276e8b0>]}
+
+
+============================== 2022-03-28 16:41:53.872147 | fd8bf87a-275e-4043-85ca-58358aa559f0 ==============================
+16:41:53.872147 [info ] [MainThread]: Running with dbt=1.0.3
+16:41:53.873713 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+16:41:53.874156 [debug] [MainThread]: Tracking: tracking
+16:41:53.874759 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f791375fca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f791375f1f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f791374aa60>]}
+16:41:53.915269 [info ] [MainThread]: Unable to do partial parsing because env vars used in profiles.yml have changed
+16:41:53.915990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'fd8bf87a-275e-4043-85ca-58358aa559f0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f791374ab80>]}
+16:41:53.968691 [debug] [MainThread]: Parsing macros/catalog.sql
+16:41:53.971203 [debug] [MainThread]: Parsing macros/adapters.sql
+16:41:54.012307 [debug] [MainThread]: Parsing macros/materializations/merge.sql
+16:41:54.016205 [debug] [MainThread]: Parsing macros/materializations/seed.sql
+16:41:54.021189 [debug] [MainThread]: Parsing macros/materializations/view.sql
+16:41:54.022980 [debug] [MainThread]: Parsing macros/materializations/table.sql
+16:41:54.025921 [debug] [MainThread]: Parsing macros/materializations/incremental.sql
+16:41:54.033882 [debug] [MainThread]: Parsing macros/materializations/snapshot.sql
+16:41:54.034774 [debug] [MainThread]: Parsing macros/materializations/hooks.sql
+16:41:54.038203 [debug] [MainThread]: Parsing macros/materializations/configs.sql
+16:41:54.040617 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot_merge.sql
+16:41:54.042243 [debug] [MainThread]: Parsing macros/materializations/snapshots/strategies.sql
+16:41:54.059396 [debug] [MainThread]: Parsing macros/materializations/snapshots/helpers.sql
+16:41:54.070481 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot.sql
+16:41:54.082711 [debug] [MainThread]: Parsing macros/materializations/tests/test.sql
+16:41:54.087248 [debug] [MainThread]: Parsing macros/materializations/tests/helpers.sql
+16:41:54.089028 [debug] [MainThread]: Parsing macros/materializations/tests/where_subquery.sql
+16:41:54.090795 [debug] [MainThread]: Parsing macros/materializations/models/incremental/column_helpers.sql
+16:41:54.095088 [debug] [MainThread]: Parsing macros/materializations/models/incremental/merge.sql
+16:41:54.106599 [debug] [MainThread]: Parsing macros/materializations/models/incremental/is_incremental.sql
+16:41:54.108551 [debug] [MainThread]: Parsing macros/materializations/models/incremental/incremental.sql
+16:41:54.120123 [debug] [MainThread]: Parsing macros/materializations/models/incremental/on_schema_change.sql
+16:41:54.136583 [debug] [MainThread]: Parsing macros/materializations/models/table/table.sql
+16:41:54.144251 [debug] [MainThread]: Parsing macros/materializations/models/table/create_table_as.sql
+16:41:54.147127 [debug] [MainThread]: Parsing macros/materializations/models/view/view.sql
+16:41:54.154325 [debug] [MainThread]: Parsing macros/materializations/models/view/helpers.sql
+16:41:54.155618 [debug] [MainThread]: Parsing macros/materializations/models/view/create_or_replace_view.sql
+16:41:54.158484 [debug] [MainThread]: Parsing macros/materializations/models/view/create_view_as.sql
+16:41:54.160813 [debug] [MainThread]: Parsing macros/materializations/seeds/seed.sql
+16:41:54.166783 [debug] [MainThread]: Parsing macros/materializations/seeds/helpers.sql
+16:41:54.183346 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_alias.sql
+16:41:54.184916 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_schema.sql
+16:41:54.187490 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_database.sql
+16:41:54.189094 [debug] [MainThread]: Parsing macros/generic_test_sql/relationships.sql
+16:41:54.190067 [debug] [MainThread]: Parsing macros/generic_test_sql/not_null.sql
+16:41:54.190678 [debug] [MainThread]: Parsing macros/generic_test_sql/unique.sql
+16:41:54.191375 [debug] [MainThread]: Parsing macros/generic_test_sql/accepted_values.sql
+16:41:54.192703 [debug] [MainThread]: Parsing macros/etc/statement.sql
+16:41:54.196959 [debug] [MainThread]: Parsing macros/etc/datetime.sql
+16:41:54.205390 [debug] [MainThread]: Parsing macros/adapters/schema.sql
+16:41:54.207536 [debug] [MainThread]: Parsing macros/adapters/indexes.sql
+16:41:54.210140 [debug] [MainThread]: Parsing macros/adapters/relation.sql
+16:41:54.219915 [debug] [MainThread]: Parsing macros/adapters/freshness.sql
+16:41:54.222839 [debug] [MainThread]: Parsing macros/adapters/persist_docs.sql
+16:41:54.227100 [debug] [MainThread]: Parsing macros/adapters/metadata.sql
+16:41:54.234135 [debug] [MainThread]: Parsing macros/adapters/columns.sql
+16:41:54.243763 [debug] [MainThread]: Parsing tests/generic/builtin.sql
+16:41:54.440045 [debug] [MainThread]: 1699: static parser successfully parsed dimensions/DIM_WORK_CATEGORY.sql
+16:41:54.516945 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.usfbm_data_mart.example
+
+16:41:54.522982 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fd8bf87a-275e-4043-85ca-58358aa559f0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f791402cbe0>]}
+16:41:54.556626 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fd8bf87a-275e-4043-85ca-58358aa559f0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7914099c10>]}
+16:41:54.557084 [info ] [MainThread]: Found 1 model, 2 tests, 0 snapshots, 0 analyses, 179 macros, 0 operations, 0 seed files, 9 sources, 0 exposures, 0 metrics
+16:41:54.559070 [info ] [MainThread]: 
+16:41:54.559918 [debug] [MainThread]: Acquiring new snowflake connection "master"
+16:41:54.561001 [debug] [ThreadPool]: Acquiring new snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:41:54.575362 [debug] [ThreadPool]: Using snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:41:54.576016 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV_B3C6026"} */
+
+    show terse objects in BI_MODERNIZATION_POC_DEV.B3C6026
+16:41:54.576429 [debug] [ThreadPool]: Opening a new connection, currently in state init
+16:41:56.526393 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 1.95 seconds
+16:41:56.530020 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: Close
+16:41:56.888389 [info ] [MainThread]: Concurrency: 8 threads (target='dev')
+16:41:56.889544 [info ] [MainThread]: 
+16:41:56.928587 [debug] [Thread-1  ]: Began running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:41:56.929389 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:41:56.929769 [debug] [Thread-1  ]: Began compiling node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:41:56.930111 [debug] [Thread-1  ]: Compiling model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:41:56.933815 [debug] [Thread-1  ]: Writing injected SQL for node "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:41:56.935764 [debug] [Thread-1  ]: finished collecting timing info
+16:41:56.936121 [debug] [Thread-1  ]: Began executing node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:41:56.936445 [debug] [Thread-1  ]: finished collecting timing info
+16:41:56.937005 [debug] [Thread-1  ]: Finished running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:41:56.938190 [debug] [Thread-3  ]: Began running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:41:56.938594 [debug] [Thread-4  ]: Began running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:41:56.939226 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3"
+16:41:56.939751 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39"
+16:41:56.940072 [debug] [Thread-3  ]: Began compiling node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:41:56.940313 [debug] [Thread-4  ]: Began compiling node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:41:56.940559 [debug] [Thread-3  ]: Compiling test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:41:56.940797 [debug] [Thread-4  ]: Compiling test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:41:56.952998 [debug] [Thread-3  ]: Writing injected SQL for node "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3"
+16:41:56.956527 [debug] [Thread-4  ]: Writing injected SQL for node "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39"
+16:41:56.957910 [debug] [Thread-3  ]: finished collecting timing info
+16:41:56.958321 [debug] [Thread-4  ]: finished collecting timing info
+16:41:56.958561 [debug] [Thread-3  ]: Began executing node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:41:56.958854 [debug] [Thread-4  ]: Began executing node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:41:56.959185 [debug] [Thread-3  ]: finished collecting timing info
+16:41:56.959446 [debug] [Thread-4  ]: finished collecting timing info
+16:41:56.959901 [debug] [Thread-3  ]: Finished running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:41:56.960387 [debug] [Thread-4  ]: Finished running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:41:56.961967 [debug] [MainThread]: Connection 'master' was properly closed.
+16:41:56.962202 [debug] [MainThread]: Connection 'model.usfbm_data_mart.DIM_WORK_CATEGORY' was properly closed.
+16:41:56.962373 [debug] [MainThread]: Connection 'test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3' was properly closed.
+16:41:56.962532 [debug] [MainThread]: Connection 'test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39' was properly closed.
+16:41:56.983399 [info ] [MainThread]: Done.
+16:41:56.983995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79140d4e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79137eedc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7914296700>]}
+
+
+============================== 2022-03-28 16:44:03.301973 | 9a58956c-4260-4c77-b01c-573be9f09197 ==============================
+16:44:03.301973 [info ] [MainThread]: Running with dbt=1.0.3
+16:44:03.303541 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+16:44:03.304570 [debug] [MainThread]: Tracking: tracking
+16:44:03.305190 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec78ade20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec78add90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec78adf10>]}
+16:44:03.345562 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+16:44:03.346122 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '9a58956c-4260-4c77-b01c-573be9f09197', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec7885640>]}
+16:44:03.385600 [debug] [MainThread]: Parsing macros/catalog.sql
+16:44:03.389165 [debug] [MainThread]: Parsing macros/adapters.sql
+16:44:03.430618 [debug] [MainThread]: Parsing macros/materializations/merge.sql
+16:44:03.434785 [debug] [MainThread]: Parsing macros/materializations/seed.sql
+16:44:03.440257 [debug] [MainThread]: Parsing macros/materializations/view.sql
+16:44:03.441808 [debug] [MainThread]: Parsing macros/materializations/table.sql
+16:44:03.445523 [debug] [MainThread]: Parsing macros/materializations/incremental.sql
+16:44:03.454761 [debug] [MainThread]: Parsing macros/materializations/snapshot.sql
+16:44:03.455963 [debug] [MainThread]: Parsing macros/materializations/hooks.sql
+16:44:03.460084 [debug] [MainThread]: Parsing macros/materializations/configs.sql
+16:44:03.462689 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot_merge.sql
+16:44:03.464676 [debug] [MainThread]: Parsing macros/materializations/snapshots/strategies.sql
+16:44:03.482538 [debug] [MainThread]: Parsing macros/materializations/snapshots/helpers.sql
+16:44:03.494777 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot.sql
+16:44:03.506701 [debug] [MainThread]: Parsing macros/materializations/tests/test.sql
+16:44:03.511181 [debug] [MainThread]: Parsing macros/materializations/tests/helpers.sql
+16:44:03.512934 [debug] [MainThread]: Parsing macros/materializations/tests/where_subquery.sql
+16:44:03.514696 [debug] [MainThread]: Parsing macros/materializations/models/incremental/column_helpers.sql
+16:44:03.519150 [debug] [MainThread]: Parsing macros/materializations/models/incremental/merge.sql
+16:44:03.531053 [debug] [MainThread]: Parsing macros/materializations/models/incremental/is_incremental.sql
+16:44:03.532685 [debug] [MainThread]: Parsing macros/materializations/models/incremental/incremental.sql
+16:44:03.543157 [debug] [MainThread]: Parsing macros/materializations/models/incremental/on_schema_change.sql
+16:44:03.559257 [debug] [MainThread]: Parsing macros/materializations/models/table/table.sql
+16:44:03.567301 [debug] [MainThread]: Parsing macros/materializations/models/table/create_table_as.sql
+16:44:03.570218 [debug] [MainThread]: Parsing macros/materializations/models/view/view.sql
+16:44:03.577735 [debug] [MainThread]: Parsing macros/materializations/models/view/helpers.sql
+16:44:03.579241 [debug] [MainThread]: Parsing macros/materializations/models/view/create_or_replace_view.sql
+16:44:03.581915 [debug] [MainThread]: Parsing macros/materializations/models/view/create_view_as.sql
+16:44:03.584132 [debug] [MainThread]: Parsing macros/materializations/seeds/seed.sql
+16:44:03.590161 [debug] [MainThread]: Parsing macros/materializations/seeds/helpers.sql
+16:44:03.607881 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_alias.sql
+16:44:03.611196 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_schema.sql
+16:44:03.613949 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_database.sql
+16:44:03.615591 [debug] [MainThread]: Parsing macros/generic_test_sql/relationships.sql
+16:44:03.616490 [debug] [MainThread]: Parsing macros/generic_test_sql/not_null.sql
+16:44:03.617047 [debug] [MainThread]: Parsing macros/generic_test_sql/unique.sql
+16:44:03.617738 [debug] [MainThread]: Parsing macros/generic_test_sql/accepted_values.sql
+16:44:03.619088 [debug] [MainThread]: Parsing macros/etc/statement.sql
+16:44:03.623366 [debug] [MainThread]: Parsing macros/etc/datetime.sql
+16:44:03.631224 [debug] [MainThread]: Parsing macros/adapters/schema.sql
+16:44:03.633161 [debug] [MainThread]: Parsing macros/adapters/indexes.sql
+16:44:03.635723 [debug] [MainThread]: Parsing macros/adapters/relation.sql
+16:44:03.644623 [debug] [MainThread]: Parsing macros/adapters/freshness.sql
+16:44:03.647574 [debug] [MainThread]: Parsing macros/adapters/persist_docs.sql
+16:44:03.651846 [debug] [MainThread]: Parsing macros/adapters/metadata.sql
+16:44:03.658794 [debug] [MainThread]: Parsing macros/adapters/columns.sql
+16:44:03.668606 [debug] [MainThread]: Parsing tests/generic/builtin.sql
+16:44:03.857850 [debug] [MainThread]: 1699: static parser successfully parsed dimensions/DIM_WORK_CATEGORY.sql
+16:44:03.927403 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.usfbm_data_mart.facts
+
+16:44:03.934841 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9a58956c-4260-4c77-b01c-573be9f09197', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec78f2f40>]}
+16:44:03.964497 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9a58956c-4260-4c77-b01c-573be9f09197', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec78f21f0>]}
+16:44:03.964953 [info ] [MainThread]: Found 1 model, 2 tests, 0 snapshots, 0 analyses, 179 macros, 0 operations, 0 seed files, 9 sources, 0 exposures, 0 metrics
+16:44:03.966871 [info ] [MainThread]: 
+16:44:03.967677 [debug] [MainThread]: Acquiring new snowflake connection "master"
+16:44:03.968895 [debug] [ThreadPool]: Acquiring new snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:44:03.985340 [debug] [ThreadPool]: Using snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:44:03.985644 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV_B3C6026"} */
+
+    show terse objects in BI_MODERNIZATION_POC_DEV.B3C6026
+16:44:03.985840 [debug] [ThreadPool]: Opening a new connection, currently in state init
+16:44:05.658580 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 1.67 seconds
+16:44:05.663075 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: Close
+16:44:06.020398 [info ] [MainThread]: Concurrency: 8 threads (target='dev')
+16:44:06.021596 [info ] [MainThread]: 
+16:44:06.031737 [debug] [Thread-1  ]: Began running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:44:06.032776 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:44:06.033761 [debug] [Thread-1  ]: Began compiling node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:44:06.035016 [debug] [Thread-1  ]: Compiling model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:44:06.040657 [debug] [Thread-1  ]: Writing injected SQL for node "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:44:06.044459 [debug] [Thread-1  ]: finished collecting timing info
+16:44:06.044859 [debug] [Thread-1  ]: Began executing node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:44:06.045181 [debug] [Thread-1  ]: finished collecting timing info
+16:44:06.045833 [debug] [Thread-1  ]: Finished running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:44:06.046491 [debug] [Thread-3  ]: Began running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:44:06.047143 [debug] [Thread-3  ]: Acquiring new snowflake connection "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3"
+16:44:06.047453 [debug] [Thread-4  ]: Began running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:44:06.047689 [debug] [Thread-3  ]: Began compiling node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:44:06.048215 [debug] [Thread-4  ]: Acquiring new snowflake connection "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39"
+16:44:06.048494 [debug] [Thread-3  ]: Compiling test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:44:06.048744 [debug] [Thread-4  ]: Began compiling node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:44:06.061657 [debug] [Thread-3  ]: Writing injected SQL for node "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3"
+16:44:06.061978 [debug] [Thread-4  ]: Compiling test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:44:06.066346 [debug] [Thread-4  ]: Writing injected SQL for node "test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39"
+16:44:06.066866 [debug] [Thread-3  ]: finished collecting timing info
+16:44:06.067139 [debug] [Thread-3  ]: Began executing node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:44:06.067350 [debug] [Thread-3  ]: finished collecting timing info
+16:44:06.067748 [debug] [Thread-3  ]: Finished running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3
+16:44:06.068377 [debug] [Thread-4  ]: finished collecting timing info
+16:44:06.068717 [debug] [Thread-4  ]: Began executing node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:44:06.068945 [debug] [Thread-4  ]: finished collecting timing info
+16:44:06.069524 [debug] [Thread-4  ]: Finished running node test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39
+16:44:06.071036 [debug] [MainThread]: Connection 'master' was properly closed.
+16:44:06.071441 [debug] [MainThread]: Connection 'model.usfbm_data_mart.DIM_WORK_CATEGORY' was properly closed.
+16:44:06.071832 [debug] [MainThread]: Connection 'test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WCT_INT_ID.a2a36e52d3' was properly closed.
+16:44:06.072079 [debug] [MainThread]: Connection 'test.usfbm_data_mart.not_null_DIM_WORK_CATEGORY_WORK_CATEGORY_SK.e91c043c39' was properly closed.
+16:44:06.093971 [info ] [MainThread]: Done.
+16:44:06.094560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec79c6bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec79c64c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feec792f820>]}
+
+
+============================== 2022-03-28 16:44:57.672558 | 5bd3d0d9-1ae9-4372-8691-e308ae4ea8c4 ==============================
+16:44:57.672558 [info ] [MainThread]: Running with dbt=1.0.3
+16:44:57.674234 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, threads=None, select=None, exclude=None, selector_name=None, state=None, defer=None, full_refresh=False, cls=<class 'dbt.task.run.RunTask'>, which='run', rpc_method='run')
+16:44:57.674660 [debug] [MainThread]: Tracking: tracking
+16:44:57.675425 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba6facd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba6faceb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba6fac220>]}
+16:44:57.748806 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+16:44:57.749213 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+16:44:57.749695 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.usfbm_data_mart.facts
+
+16:44:57.756408 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5bd3d0d9-1ae9-4372-8691-e308ae4ea8c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba70b90d0>]}
+16:44:57.785482 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5bd3d0d9-1ae9-4372-8691-e308ae4ea8c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba703e070>]}
+16:44:57.786008 [info ] [MainThread]: Found 1 model, 2 tests, 0 snapshots, 0 analyses, 179 macros, 0 operations, 0 seed files, 9 sources, 0 exposures, 0 metrics
+16:44:57.787910 [info ] [MainThread]: 
+16:44:57.788714 [debug] [MainThread]: Acquiring new snowflake connection "master"
+16:44:57.790231 [debug] [ThreadPool]: Acquiring new snowflake connection "list_BI_MODERNIZATION_POC_DEV"
+16:44:57.806996 [debug] [ThreadPool]: Using snowflake connection "list_BI_MODERNIZATION_POC_DEV"
+16:44:57.807403 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV"} */
+
+    show terse schemas in database BI_MODERNIZATION_POC_DEV
+    limit 10000
+16:44:57.807628 [debug] [ThreadPool]: Opening a new connection, currently in state init
+16:44:59.447954 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.64 seconds
+16:44:59.450922 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV: Close
+16:44:59.808997 [debug] [ThreadPool]: Acquiring new snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:44:59.823002 [debug] [ThreadPool]: Using snowflake connection "list_BI_MODERNIZATION_POC_DEV_B3C6026"
+16:44:59.823488 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "connection_name": "list_BI_MODERNIZATION_POC_DEV_B3C6026"} */
+
+    show terse objects in BI_MODERNIZATION_POC_DEV.B3C6026
+16:44:59.823829 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+16:45:01.295279 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 1.47 seconds
+16:45:01.299126 [debug] [ThreadPool]: On list_BI_MODERNIZATION_POC_DEV_B3C6026: Close
+16:45:01.647827 [info ] [MainThread]: Concurrency: 8 threads (target='dev')
+16:45:01.648796 [info ] [MainThread]: 
+16:45:01.658143 [debug] [Thread-1  ]: Began running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:45:01.659103 [info ] [Thread-1  ]: 1 of 1 START table model B3C6026.DIM_WORK_CATEGORY.............................. [RUN]
+16:45:01.660938 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:45:01.661495 [debug] [Thread-1  ]: Began compiling node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:45:01.662131 [debug] [Thread-1  ]: Compiling model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:45:01.666386 [debug] [Thread-1  ]: Writing injected SQL for node "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:45:01.670109 [debug] [Thread-1  ]: finished collecting timing info
+16:45:01.670953 [debug] [Thread-1  ]: Began executing node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:45:01.701540 [debug] [Thread-1  ]: Writing runtime SQL for node "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:45:01.704218 [debug] [Thread-1  ]: Using snowflake connection "model.usfbm_data_mart.DIM_WORK_CATEGORY"
+16:45:01.704773 [debug] [Thread-1  ]: On model.usfbm_data_mart.DIM_WORK_CATEGORY: /* {"app": "dbt", "dbt_version": "1.0.3", "profile_name": "usfbm_data_mart", "target_name": "dev", "node_id": "model.usfbm_data_mart.DIM_WORK_CATEGORY"} */
+
+
+      create or replace transient table BI_MODERNIZATION_POC_DEV.B3C6026.DIM_WORK_CATEGORY  as
+      (WITH source -- the CTE view name
+	AS(
+        SELECT *
+        FROM GOLD.RED_PRAIRIE.WORKCATEGORY
+        WHERE WCT_NAME != '<none>' LIMIT 100
+    )
+SELECT * FROM source -- from the CTE view build a new reference with this filename
+      );
+16:45:01.705139 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+16:45:03.137188 [debug] [Thread-1  ]: Snowflake adapter: Snowflake query id: 01a33b4d-0403-dec5-0000-0329758cb866
+16:45:03.137723 [debug] [Thread-1  ]: Snowflake adapter: Snowflake error: 002003 (02000): SQL compilation error:
+Database 'GOLD' does not exist or not authorized.
+16:45:03.138442 [debug] [Thread-1  ]: finished collecting timing info
+16:45:03.138821 [debug] [Thread-1  ]: On model.usfbm_data_mart.DIM_WORK_CATEGORY: Close
+16:45:03.514177 [debug] [Thread-1  ]: Database Error in model DIM_WORK_CATEGORY (models/dimensions/DIM_WORK_CATEGORY.sql)
+  002003 (02000): SQL compilation error:
+  Database 'GOLD' does not exist or not authorized.
+  compiled SQL at target/run/usfbm_data_mart/models/dimensions/DIM_WORK_CATEGORY.sql
+16:45:03.515213 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5bd3d0d9-1ae9-4372-8691-e308ae4ea8c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba7420310>]}
+16:45:03.516235 [error] [Thread-1  ]: 1 of 1 ERROR creating table model B3C6026.DIM_WORK_CATEGORY..................... [[31mERROR[0m in 1.85s]
+16:45:03.517394 [debug] [Thread-1  ]: Finished running node model.usfbm_data_mart.DIM_WORK_CATEGORY
+16:45:03.520533 [debug] [MainThread]: Acquiring new snowflake connection "master"
+16:45:03.521519 [info ] [MainThread]: 
+16:45:03.522578 [info ] [MainThread]: Finished running 1 table model in 5.73s.
+16:45:03.523372 [debug] [MainThread]: Connection 'master' was properly closed.
+16:45:03.524121 [debug] [MainThread]: Connection 'model.usfbm_data_mart.DIM_WORK_CATEGORY' was properly closed.
+16:45:03.557964 [info ] [MainThread]: 
+16:45:03.558617 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+16:45:03.559323 [info ] [MainThread]: 
+16:45:03.559986 [error] [MainThread]: [33mDatabase Error in model DIM_WORK_CATEGORY (models/dimensions/DIM_WORK_CATEGORY.sql)[0m
+16:45:03.560791 [error] [MainThread]:   002003 (02000): SQL compilation error:
+16:45:03.561227 [error] [MainThread]:   Database 'GOLD' does not exist or not authorized.
+16:45:03.561698 [error] [MainThread]:   compiled SQL at target/run/usfbm_data_mart/models/dimensions/DIM_WORK_CATEGORY.sql
+16:45:03.562125 [info ] [MainThread]: 
+16:45:03.562434 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+16:45:03.562910 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba7090a60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba72a3700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ba72fbd30>]}
+
+
+============================== 2022-03-28 17:14:38.627625 | e8da14dd-8b4a-4e14-a702-adf21ecc1d19 ==============================
+17:14:38.627625 [info ] [MainThread]: Running with dbt=1.0.3
+17:14:38.629148 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+17:14:38.629550 [debug] [MainThread]: Tracking: tracking
+17:14:38.630247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf6af190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf6af400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf6afbb0>]}
+17:14:38.715936 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 2 files changed.
+17:14:38.716457 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://macros/select_dev_db.sql
+17:14:38.717111 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.SUPPLY_WAREHOUSE.WAREHOUSE_FACILITY_CONSOLIDATED
+17:14:38.717432 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+17:14:38.717895 [debug] [MainThread]: Partial parsing: updated file: usfbm_data_mart://models/dimensions/DIM_WORK_CATEGORY.sql
+17:14:38.718151 [debug] [MainThread]: Parsing macros/select_dev_db.sql
+17:14:38.721255 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf738be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf79e1f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7facaf79e280>]}
+
+
+============================== 2022-03-28 17:16:04.955455 | fe9a691f-6001-497d-8c9c-8bf3cf112fe3 ==============================
+17:16:04.955455 [info ] [MainThread]: Running with dbt=1.0.3
+17:16:04.956899 [debug] [MainThread]: running dbt with arguments Namespace(record_timing_info=None, debug=None, log_format=None, write_json=None, use_colors=None, printer_width=None, warn_error=None, version_check=None, partial_parse=None, single_threaded=False, use_experimental_parser=None, static_parser=None, profiles_dir='/Users/fabioalpizar/Documents/BI_Mod/USFBM-445-DBT', send_anonymous_usage_stats=None, fail_fast=None, event_buffer_size=None, project_dir=None, profile=None, target=None, vars='{}', log_cache_events=False, parse_only=False, threads=None, select=None, exclude=None, selector_name=None, state=None, full_refresh=False, defer=None, cls=<class 'dbt.task.compile.CompileTask'>, which='compile', rpc_method='compile')
+17:16:04.957527 [debug] [MainThread]: Tracking: tracking
+17:16:04.958181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e5f2fd00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e5f2feb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e5f2f220>]}
+17:16:05.029966 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 2 files changed.
+17:16:05.030555 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://macros/select_dev_db.sql
+17:16:05.031236 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.SUPPLY_WAREHOUSE.WAREHOUSE_FACILITY_CONSOLIDATED
+17:16:05.031524 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+17:16:05.031916 [debug] [MainThread]: Partial parsing: updated file: usfbm_data_mart://models/dimensions/DIM_WORK_CATEGORY.sql
+17:16:05.032182 [debug] [MainThread]: Parsing macros/select_dev_db.sql
+17:16:05.049716 [debug] [MainThread]: 1603: static parser failed on dimensions/DIM_WORK_CATEGORY.sql
+17:16:05.065992 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e5fb0be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e6138f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f91e6159c40>]}
