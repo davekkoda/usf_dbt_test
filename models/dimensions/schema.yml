@@ -1,0 +1,15 @@
+version: 2
+
+models:
+
+    - name: DIM_WORK_CATEGORY
+      description: "Based on WORKCATEGORY table from GOLD.RED_PRAIRIE schema.\nDefinition: Table contains work category name by warehouse\n\nThe data in this table needs to be cleaned up. Contains a warehouse id and a work category name, and there are only 3 or 4 values in the work category name, however they are mixed different cases for each entry, one row for each warehouse/work area combination."
+      columns:
+          - name: WORK_CATEGORY_SK
+            tests:
+              - not_null
+          - name: WCT_INT_ID
+            tests:
+              - not_null
+          - name: WCT_NAME
+          - name: SRC_ID

@@ -1,0 +1,38 @@
+
+version: 2
+
+sources:
+
+    - name: GOLD_RED_PRAIRIE
+      description: "DB GOLD and SCHEMA RED_PRAIRIE sources"
+      database: GOLD
+      schema: RED_PRAIRIE
+      tables:
+        - name: KVI_SUMMARY
+        - name: KVI_ADJUSTMENTS
+        - name: TS_DRIVER
+        - name: JOB_CODE
+        - name: WORKCATEGORY
+
+    - name: GOLD_OMNITRACS
+      description: "DB GOLD and SCHEMA OMNITRACS sources"
+      database: GOLD
+      schema: OMNITRACS
+      tables:
+        - name: DRIVER_LOG_HDR
+
+    - name: GOLD_XDMADM
+      description: "DB GOLD and SCHEMA OMNITRACS sources"
+      database: GOLD
+      schema: XDMADM
+      tables:
+        - name: DIV_CORP
+        - name: TIME_CORP
+        - name: TIME_CORP
+
+    - name: SUPPLY_WAREHOUSE
+      description: "DB GOLD and SCHEMA OMNITRACS sources"
+      database: SUPPLY_CHAIN
+      schema: WAREHOUSE
+      tables:
+        - name: WAREHOUSE_FACILITY_CONSOLIDATED
