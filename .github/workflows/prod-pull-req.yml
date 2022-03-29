@@ -37,4 +37,4 @@ jobs:
       # Run dbt
       - name: Run DBT in PROD
         run: |
-          dbt run -t prod --profiles-dir .
+          dbt run --target prod --profiles-dir .
