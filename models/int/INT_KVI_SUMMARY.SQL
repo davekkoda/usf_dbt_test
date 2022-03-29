@@ -17,7 +17,6 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DATE_SK
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} AS SM
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename

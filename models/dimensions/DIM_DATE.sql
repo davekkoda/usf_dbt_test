@@ -1,7 +1,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT
-            TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT),'YYYYMMDD'))AS DATE_SK
+            TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT),'YYYYMMDD'))AS DIM_DATE_SK
             , *
         FROM {{ ref('INT_DIM_DATE') }}
     )
