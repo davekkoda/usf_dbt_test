@@ -3,7 +3,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT
-            BRNCH_CD::integer AS  WH_ID -- A character code to represent Branch.`
+            BRNCH_CD::varchar(16) AS  WH_ID -- A character code to represent Branch.`
             ,RGN_CD::varchar(16) AS RGN_CD  -- region id
             ,DIV_TYP_CD::varchar(16) AS DIV_TYP_CD  -- Division Type Code
             ,ZIP_CD::integer AS ZIP_CD  -- Division zip code
