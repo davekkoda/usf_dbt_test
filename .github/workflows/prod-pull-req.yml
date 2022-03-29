@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+# -- CHANGE TO QA
+
 env:
   SNOW_USFBM_ACCOUNT: ${{ secrets.SNOW_USFBM_ACCOUNT }}
   SNOW_USFBM_USERNAME_QA: ${{ secrets.SNOW_USFBM_USERNAME_QA }}
@@ -34,7 +36,9 @@ jobs:
           pip install dbt-snowflake
           dbt deps
 
-      # Run dbt ------ CHANGE TO PROD ------
+#------ CHANGE TO PROD ------
+
+      # Run dbt
       - name: Run DBT in PROD
         run: |
           dbt run --target qa --profiles-dir .

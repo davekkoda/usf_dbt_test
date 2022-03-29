@@ -33,6 +33,8 @@ usfbm_data_mart:
       database: "{{env_var('SNOW_USFBM_DATABASE_QA')}}"
       schema: "{{env_var('SNOW_USFBM_SCHEMA_QA')}}"
 
+# -- CHANGE TO QA
+
     prod:
       type: snowflake
       threads: 8
