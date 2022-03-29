@@ -24,7 +24,7 @@ WITH source -- the CTE view name
         LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODE_ID = ADJ.JOBCODE_ID
         AND   SM.WH_ID = ADJ.WH_ID
-        AND   SM.WCT_INT_ID = ADJ.WCT_INT_ID
+        AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARYINTID = ADJ.KVISUMMARYINTID
         AND   SM.SRC_ID = ADJ.SRC_ID
     )
