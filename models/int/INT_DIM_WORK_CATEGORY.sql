@@ -3,7 +3,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT
-            WCT_INT_ID::integer AS WCT_INT_ID
+            WCT_INT_ID::integer AS WCT_ID
             ,WH_ID::varchar(8) AS WH_ID
             ,WCT_NAME::varchar(128) as WCT_NAME
             ,SRC_ID::varchar(8) as SRC_ID
