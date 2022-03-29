@@ -1,6 +1,8 @@
 WITH source -- the CTE view name
 	AS(
-        SELECT BRNCH_CD -- A character code to represent Branch.`
+        SELECT
+            {{ dbt_utils.surrogate_key(['BRNCH_CD']) }} AS DIM_MARKET_SK
+            ,BRNCH_CD -- A character code to represent Branch.`
             ,RGN_CD -- region id
             ,DIV_TYP_CD -- Division Type Code
             ,ZIP_CD -- Division zip code
