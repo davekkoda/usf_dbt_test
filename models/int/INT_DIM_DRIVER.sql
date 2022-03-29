@@ -1,3 +1,5 @@
+{{ config(materialized='view') }}
+
 WITH source -- the CTE view name
 	AS(
         SELECT 

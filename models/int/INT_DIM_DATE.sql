@@ -1,8 +1,9 @@
+{{ config(materialized='view') }}
+
 WITH source -- the CTE view name
 	AS(
         SELECT
-            TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT),'YYYYMMDD'))AS DATE_SK
-            , CLNDR_DT
+            CLNDR_DT
             , CLNDR_DAY_NM
             , CLNDR_MTH_NM
             , CLNDR_YR::INTEGER
