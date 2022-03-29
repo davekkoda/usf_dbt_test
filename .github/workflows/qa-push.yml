@@ -28,6 +28,11 @@ jobs:
         with:
           python-version: "3.9.x"
 
+      - name: Check credentials
+        run: |
+          echo $SNOW_USFBM_USERNAME_QA
+          echo $SNOW_USFBM_PASSWORD_QA
+
       # Install dbt
       - name: Install dependencies
         run: |
