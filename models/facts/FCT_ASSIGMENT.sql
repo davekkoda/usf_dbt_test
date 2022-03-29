@@ -1,6 +1,6 @@
 WITH source -- the CTE view name
 	AS(
-        SELECT SM.WCT_INT_ID
+        SELECT SM.WCT_ID
         ,SM.WH_ID
         ,SM.USR_ID
         ,SM.DIRECT
@@ -10,7 +10,7 @@ WITH source -- the CTE view name
         ,SM.GOAL_SECONDS
         ,SM.KVI_TMU_05
         ,SM.ASSIGN_NUM
-        ,SM.JOBCODEINTID
+        ,SM.JOBCODE_ID
         ,SM.KVISUMMARYINTID
         ,SM.SRC_ID
         ,ADJ.ADJ_DURATION 
@@ -20,8 +20,8 @@ WITH source -- the CTE view name
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.JOBCODEINTID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DATE_SK
-        FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} AS SM
-        LEFT OUTER JOIN {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} AS ADJ
+        FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
+        LEFT OUTER JOIN {{ source('INT_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODEINTID = ADJ.JOBCODEINTID
         AND   SM.WH_ID = ADJ.WH_ID
         AND   SM.WCT_INT_ID = ADJ.WCT_INT_ID
