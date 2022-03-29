@@ -15,9 +15,9 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,ADJ.ADJ_DURATION 
         ,ADJ.ADJ_INT_ID
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.WCT_INT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID']) }} AS DIM_MARKET_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.JOBCODEINTID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DATE_SK
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
