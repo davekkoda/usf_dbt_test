@@ -6,14 +6,14 @@ on:
       - main
 
 env:
-  SNOWFLAKE_ACCOUNT:  ${{ secrets.SNOW_USFBM_ACCOUNT }}
-  SNOWFLAKE_USERNAME: ${{ secrets.SNOW_USFBM_USERNAME_PROD }}
-  SNOWFLAKE_PASSWORD: ${{ secrets.SNOW_USFBM_PASSWORD_PROD }}
-  SNOWFLAKE_ROLE: ${{ secrets.SNOW_USFBM_ROLE_PROD }}
+  SNOW_USFBM_ACCOUNT:  ${{secrets.SNOW_USFBM_ACCOUNT}}
+  SNOW_USFBM_USERNAME_PROD: ${{secrets.SNOW_USFBM_USERNAME_PROD}}
+  SNOW_USFBM_PASSWORD_PROD: ${{secrets.SNOW_USFBM_PASSWORD_PROD}}
+  SNOW_USFBM_ROLE_PROD: ${{secrets.SNOW_USFBM_ROLE_PROD}}
 
-  SNOWFLAKE_DATABASE: ${{ secrets.SNOW_USFBM_DATABASE_PROD }}
-  SNOWFLAKE_SCHEMA_QA: ${{ secrets.SNOW_USFBM_SCHEMA_PROD }}
-  SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOW_USFBM_WAREHOUSE_PROD }}
+  SNOW_USFBM_DATABASE_PROD: ${{secrets.SNOW_USFBM_DATABASE_PROD}}
+  SNOW_USFBM_SCHEMA_PROD: ${{secrets.SNOW_USFBM_SCHEMA_PROD}}
+  SNOW_USFBM_WAREHOUSE_PROD: ${{secrets.SNOW_USFBM_WAREHOUSE_PROD}}
 
 jobs:
   dbt-check:
@@ -34,7 +34,7 @@ jobs:
           pip install dbt-snowflake
           dbt deps
 
-      # Run dbt
+      # Run dbt ------ CHANGE TO PROD ------
       - name: Run DBT in PROD
         run: |
-          dbt run -t prod --profiles-dir .
+          dbt run --target qa --profiles-dir .
