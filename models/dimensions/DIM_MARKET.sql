@@ -1,7 +1,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT
-            {{ dbt_utils.surrogate_key(['BRNCH_CD']) }} AS DIM_MARKET_SK
+            {{ dbt_utils.surrogate_key(['WH_ID']) }} AS DIM_MARKET_SK
             , *
         WHEN INACT_DT IS NULL THEN 1
         ELSE 0 END AS IS_ACT

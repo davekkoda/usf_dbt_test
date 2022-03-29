@@ -1,7 +1,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT
-            {{ dbt_utils.surrogate_key(['WH_ID', 'JOBCODEINTID', 'SRC_ID']) }} AS DIM_JOBCODE_SK
+            {{ dbt_utils.surrogate_key(['WH_ID', 'JOBCODE_ID', 'SRC_ID']) }} AS DIM_JOBCODE_SK
             , *
         FROM {{ ref('INT_DIM_JOBCODE') }}
     )
