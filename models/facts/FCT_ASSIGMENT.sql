@@ -21,7 +21,7 @@ WITH source -- the CTE view name
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DATE_SK
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
-        LEFT OUTER JOIN {{ source('INT_KVI_ADJUSTMENTS') }} AS ADJ
+        LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODEINTID = ADJ.JOBCODEINTID
         AND   SM.WH_ID = ADJ.WH_ID
         AND   SM.WCT_INT_ID = ADJ.WCT_INT_ID
