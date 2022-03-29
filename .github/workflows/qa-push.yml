@@ -3,7 +3,7 @@ name: Run DBT in QA
 on:
   push:
     branches:
-      - qa-branch
+      - qa-cicd
 
 env:
   SNOW_USFBM_ACCOUNT: ${{secrets.SNOW_USFBM_ACCOUNT}}
