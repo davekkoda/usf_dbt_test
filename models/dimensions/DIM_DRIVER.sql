@@ -1,8 +1,12 @@
 WITH source -- the CTE view name
 	AS(
+<<<<<<< HEAD
         SELECT 
             {{ dbt_utils.surrogate_key(['BRNCH_CD', 'RPRT_DT_TM']) }} AS DIM_DRIVER_SK
             ,BRNCH_CD
+=======
+        SELECT BRNCH_CD
+>>>>>>> main
             ,RPRT_DT_TM AS RPRT_DT_DM
             ,DRVR_ID 
         FROM {{ source('GOLD_OMNITRACS', 'DRIVER_LOG_HDR') }}
