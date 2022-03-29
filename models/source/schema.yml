@@ -10,7 +10,6 @@ sources:
       tables:
         - name: KVI_SUMMARY
         - name: KVI_ADJUSTMENTS
-        - name: TS_DRIVER
         - name: JOBCODE
         - name: WORKCATEGORY
 
