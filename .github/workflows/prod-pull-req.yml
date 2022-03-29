@@ -1,0 +1,40 @@
+name: Run DBT in QA
+
+on:
+  push:
+    branches:
+      - qa-branch
+
+env:
+  SNOWFLAKE_ACCOUNT:  ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  SNOWFLAKE_USERNAME: ${{ secrets.SNOWFLAKE_USERNAME }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+  SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+
+  SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+  SNOWFLAKE_SCHEMA_QA: ${{ secrets.SNOWFLAKE_SCHEMA_QA }}
+  SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+
+jobs:
+  dbt-check:
+    runs-on: ubuntu-20.04
+    steps:
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Define python version
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.9.x"
+
+      # Install dbt
+      - name: Install dependencies
+        run: |
+          pip install dbt-snowflake
+          dbt deps
+
+      # Run dbt
+      - name: Run DBT in QA
+        run: |
+          dbt run -t qa --vars --profiles-dir .

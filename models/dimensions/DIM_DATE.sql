@@ -1,6 +1,11 @@
 WITH source -- the CTE view name
 	AS(
+<<<<<<< HEAD
+        SELECT
+            TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT),'YYYYMMDD'))AS DATE_SK
+=======
         SELECT TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT),'YYYYMMDD'))AS DATE_SK
+>>>>>>> main
             , CLNDR_DT
             , CLNDR_DAY_NM
             , CLNDR_MTH_NM
