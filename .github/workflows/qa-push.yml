@@ -14,7 +14,7 @@ env:
   SNOW_USFBM_DATABASE_QA: ${{secrets.SNOW_USFBM_DATABASE_QA}}
   SNOW_USFBM_SCHEMA_QA: ${{secrets.SNOW_USFBM_SCHEMA_QA}}
   SNOW_USFBM_WAREHOUSE_QA: ${{secrets.SNOW_USFBM_WAREHOUSE_QA}}
-
+  
 jobs:
   dbt-check:
     runs-on: ubuntu-20.04
