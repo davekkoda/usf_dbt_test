@@ -8,14 +8,14 @@ usfbm_data_mart:
       threads: 8
       query_tag: "DEV: USFBM Data Mart DBT project"
       
-      account: "{{ env_var('SNOW_USFBM_ACCOUNT') }}"
-      user: "{{ env_var('SNOW_USFBM_USERNAME_DEV') }}"
-      password: "{{ env_var('SNOW_USFBM_PASSWORD_DEV') }}"
-      role: "{{ env_var('SNOW_USFBM_ROLE_DEV') }}"
+      account: "{{env_var('SNOW_USFBM_ACCOUNT')}}"
+      user: "{{env_var('SNOW_USFBM_USERNAME_DEV')}}"
+      password: "{{env_var('SNOW_USFBM_PASSWORD_DEV')}}"
+      role: "{{env_var('SNOW_USFBM_ROLE_DEV')}}"
       
-      warehouse: "{{ env_var('SNOW_USFBM_WAREHOUSE_DEV') }}"
-      database: "{{ env_var('SNOW_USFBM_DATABASE_DEV') }}"
-      schema: "{{ env_var('SNOW_USFBM_SCHEMA_DEV') }}"
+      warehouse: "{{env_var('SNOW_USFBM_WAREHOUSE_DEV')}}"
+      database: "{{env_var('SNOW_USFBM_DATABASE_DEV')}}"
+      schema: "{{env_var('SNOW_USFBM_SCHEMA_DEV')}}"
 
 # -- change schema and db
 
