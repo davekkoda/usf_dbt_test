@@ -15,14 +15,11 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,ADJ.ADJ_DURATION 
         ,ADJ.ADJ_INT_ID
-<<<<<<< HEAD
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.WCT_INT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.JOBCODEINTID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DATE_SK
-=======
->>>>>>> main
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} AS SM
         LEFT OUTER JOIN {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODEINTID = ADJ.JOBCODEINTID

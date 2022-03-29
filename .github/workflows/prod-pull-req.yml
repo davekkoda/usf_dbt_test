@@ -1,19 +1,19 @@
-name: Run DBT in QA
+name: Run DBT in PROD
 
 on:
   push:
     branches:
-      - qa-branch
+      - main
 
 env:
-  SNOWFLAKE_ACCOUNT:  ${{ secrets.SNOWFLAKE_ACCOUNT }}
-  SNOWFLAKE_USERNAME: ${{ secrets.SNOWFLAKE_USERNAME }}
-  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-  SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+  SNOWFLAKE_ACCOUNT:  ${{ secrets.SNOW_USFBM_ACCOUNT }}
+  SNOWFLAKE_USERNAME: ${{ secrets.SNOW_USFBM_USERNAME_PROD }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOW_USFBM_PASSWORD_PROD }}
+  SNOWFLAKE_ROLE: ${{ secrets.SNOW_USFBM_ROLE_PROD }}
 
-  SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-  SNOWFLAKE_SCHEMA_QA: ${{ secrets.SNOWFLAKE_SCHEMA_QA }}
-  SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+  SNOWFLAKE_DATABASE: ${{ secrets.SNOW_USFBM_DATABASE_PROD }}
+  SNOWFLAKE_SCHEMA_QA: ${{ secrets.SNOW_USFBM_SCHEMA_PROD }}
+  SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOW_USFBM_WAREHOUSE_PROD }}
 
 jobs:
   dbt-check:
@@ -35,6 +35,6 @@ jobs:
           dbt deps
 
       # Run dbt
-      - name: Run DBT in QA
+      - name: Run DBT in PROD
         run: |
-          dbt run -t qa --vars --profiles-dir .
+          dbt run -t prod --profiles-dir .
