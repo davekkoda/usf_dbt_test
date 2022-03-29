@@ -34,7 +34,7 @@ jobs:
           pip install dbt-snowflake
           dbt deps
 
-      # Run dbt
+      # Run dbt ------ CHANGE TO PROD ------
       - name: Run DBT in PROD
         run: |
-          dbt run --target prod --profiles-dir .
+          dbt run --target qa --profiles-dir .

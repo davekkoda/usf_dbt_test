@@ -6,8 +6,8 @@ on:
       - qa-branch
 
 env:
-  SNOW_USFBM_ACCOUNT: usfoods
-  SNOW_USFBM_USERNAME_QA: BI_MODERNIZATION_POC_QA
+  SNOW_USFBM_ACCOUNT: ${{secrets.SNOW_USFBM_ACCOUNT}}
+  SNOW_USFBM_USERNAME_QA: ${{secrets.SNOW_USFBM_USERNAME_QA}}
   SNOW_USFBM_PASSWORD_QA: ${{secrets.SNOW_USFBM_PASSWORD_QA}}
   SNOW_USFBM_ROLE_QA: ${{secrets.SNOW_USFBM_ROLE_QA}}
 
@@ -27,11 +27,6 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: "3.9.x"
-
-      - name: Check credentials
-        run: |
-          echo $SNOW_USFBM_USERNAME_QA
-          echo $SNOW_USFBM_PASSWORD_QA
 
       # Install dbt
       - name: Install dependencies
