@@ -13,6 +13,8 @@ WITH source -- the CTE view name
         ,SM.JOBCODE_ID
         ,SM.KVISUMMARYINTID
         ,SM.SRC_ID
+        ,SM.START_TIME
+        ,SM.STOP_TIME
         ,ADJ.ADJ_DURATION 
         ,ADJ.ADJ_INT_ID
         ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
