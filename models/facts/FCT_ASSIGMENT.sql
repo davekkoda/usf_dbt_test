@@ -2,7 +2,7 @@
 
 WITH source -- the CTE view name
 	AS(
-        SELECT SM.WCT_CD
+        SELECT SM.WCT_ID
         ,SM.WH_CD
         ,SM.USR_ID
         ,SM.DIRECT
