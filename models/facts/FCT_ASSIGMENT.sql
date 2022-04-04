@@ -31,5 +31,16 @@ WITH source -- the CTE view name
         AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
+<<<<<<< HEAD
+=======
+
+        {% if is_incremental() %}
+
+        where LAST_UPD_DT > (select max(LAST_UPD_DT) from {{ this }})
+
+        {% endif %}
+
+
+>>>>>>> be1e36c (Fix WCT id errors all changed to _ID)
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
