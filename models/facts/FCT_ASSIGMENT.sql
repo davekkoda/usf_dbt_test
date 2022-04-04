@@ -40,8 +40,5 @@ WITH source -- the CTE view name
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
 
-        {% if is_incremental() %}
-            WHERE LAST_UPD_DT > (SELECT MAX(LAST_UPD_DT) from {{ this }})
-        {% endif %}
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
