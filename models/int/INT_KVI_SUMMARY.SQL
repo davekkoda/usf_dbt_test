@@ -10,7 +10,7 @@ WITH source -- the CTE view name
         ,SM.ISMEASURED
         ,SM.ACTUAL_SECONDS
         ,SM.GOAL_SECONDS
-        ,SM.KVI_TMU_05
+        ,SM.KVI_TMU_05 AS CASES
         ,SM.ASSIGN_NUM
         ,SM.JOBCODEINTID AS JOBCODE_ID
         ,SM.KVISUMMARYINTID AS KVISUMMARY_ID
