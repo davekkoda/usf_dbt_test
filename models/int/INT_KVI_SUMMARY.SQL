@@ -3,7 +3,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT SM.WCT_INT_ID AS WCT_ID
-        ,SM.WH_ID  
+        ,SM.WH_ID AS WH_CD
         ,SM.USR_ID
         ,SM.DIRECT
         ,SM.REPORT_DATE
@@ -13,7 +13,7 @@ WITH source -- the CTE view name
         ,SM.KVI_TMU_05
         ,SM.ASSIGN_NUM
         ,SM.JOBCODEINTID AS JOBCODE_ID
-        ,SM.KVISUMMARYINTID
+        ,SM.KVISUMMARYINTID AS KVISUMMARY_ID
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
