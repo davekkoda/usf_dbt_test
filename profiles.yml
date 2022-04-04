@@ -41,10 +41,10 @@ usfbm_data_mart:
       query_tag: "PROD: USFBM Data Mart DBT project "
       
       account: "{{env_var('SNOW_USFBM_ACCOUNT')}}"
-      user: "{{ env_var('SNOW_USFBM_USERNAME_QA')}}"
-      password: "{{env_var('SNOW_USFBM_PASSWORD_QA')}}"
-      role: "{{env_var('SNOW_USFBM_ROLE_QA')}}"
+      user: "{{ env_var('SNOW_USFBM_USERNAME_PROD')}}"
+      password: "{{env_var('SNOW_USFBM_PASSWORD_PROD')}}"
+      role: "{{env_var('SNOW_USFBM_ROLE_PROD')}}"
       
-      warehouse: "{{env_var('SNOW_USFBM_WAREHOUSE_QA')}}"
-      database: "{{ env_var('SNOW_USFBM_DATABASE_QAV')}}"
-      schema: "{{env_var('SNOW_USFBM_SCHEMA_QA')}}"
+      warehouse: "{{env_var('SNOW_USFBM_WAREHOUSE_PROD')}}"
+      database: "{{ env_var('SNOW_USFBM_DATABASE_PROD')}}"
+      schema: "{{env_var('SNOW_USFBM_SCHEMA_PROD')}}"

@@ -1,6 +1,8 @@
+{{ config(materialized='incremental') }}
+
 WITH source -- the CTE view name
 	AS(
-        SELECT SM.WCT_ID
+        SELECT SM.WCT_CD
         ,SM.WH_CD
         ,SM.USR_ID
         ,SM.DIRECT
@@ -15,6 +17,7 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
+        ,SM.LAST_UPD_DT
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
@@ -28,5 +31,7 @@ WITH source -- the CTE view name
         AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
+
+
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
