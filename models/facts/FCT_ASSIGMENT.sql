@@ -20,10 +20,10 @@ WITH source -- the CTE view name
         ,ADJ.ADJ_DURATION 
         ,ADJ.ADJ_INT_ID
         ,SM.LAST_UPD_DT
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID']) }} AS DIM_MARKET_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_ID', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
+        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DIM_DATE_SK
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
         LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
@@ -33,8 +33,6 @@ WITH source -- the CTE view name
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
 
-        {% if is_incremental() %}
-            WHERE LAST_UPD_DT > (SELECT MAX(LAST_UPD_DT) from {{ this }})
-        {% endif %}
+
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
