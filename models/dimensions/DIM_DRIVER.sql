@@ -1,9 +1,10 @@
 WITH source -- the CTE view name
 	AS(
         SELECT 
-            {{ dbt_utils.surrogate_key(['WH_ID', 'RPRT_DT_TM']) }} AS DIM_DRIVER_SK
+            {{ dbt_utils.surrogate_key(['WH_CD', 'RPRT_DT_TM']) }} AS DIM_DRIVER_PK
             , *
             
-        FROM {{ ref('INT_DIM_DRIVER') }}
+        FROM {{ ref('INT_DRIVER_LOG_HDR') }}
+        ORDER BY DIM_DRIVER_PK
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename

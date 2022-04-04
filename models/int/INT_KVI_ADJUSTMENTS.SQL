@@ -4,9 +4,9 @@ WITH source -- the CTE view name
         SELECT ADJ.ADJ_DURATION 
         ,ADJ.ADJ_INT_ID
         ,ADJ.JOBCODEINTID AS JOBCODE_ID
-        ,ADJ.WH_ID
+        ,ADJ.WH_ID AS WH_CD
         ,ADJ.WCT_INT_ID AS WCT_ID
-        ,ADJ.KVISUMMARYINTID
+        ,ADJ.KVISUMMARYINTID AS KVISUMMARY_ID
         ,ADJ.SRC_ID
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} AS ADJ
 
