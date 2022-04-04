@@ -6,16 +6,16 @@ WITH source -- the CTE view name
         ,SM.DIRECT
         ,SM.REPORT_DATE
         ,SM.ISMEASURED
-        ,SM.ACTUAL_SECONDS
-        ,SM.GOAL_SECONDS
-        ,SM.KVI_TMU_05
+        ,COALESCE(SM.ACTUAL_SECONDS,0) AS ACTUAL_SECONDS
+        ,COALESCE(SM.GOAL_SECONDS,0) AS GOAL_SECONDS
+        ,COALESCE(SM.KVI_TMU_05,0) AS CASES
         ,SM.ASSIGN_NUM
         ,SM.JOBCODE_ID
         ,SM.KVISUMMARY_ID
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,ADJ.ADJ_DURATION 
+        ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
