@@ -1,9 +1,7 @@
+{{ config(materialized='incremental') }}
+
 WITH source -- the CTE view name
-<<<<<<< HEAD
     AS(
-=======
-	AS(
->>>>>>> 83c735b (Incremental CICD testing)
         SELECT SM.WCT_ID
         ,SM.WH_CD
         ,SM.USR_ID
@@ -25,11 +23,7 @@ WITH source -- the CTE view name
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
-<<<<<<< HEAD
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DIM_DATE_SK
-=======
-        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD')) AS DIM_DATE_SK
->>>>>>> 83c735b (Incremental CICD testing)
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
         LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODE_ID = ADJ.JOBCODE_ID
@@ -37,7 +31,6 @@ WITH source -- the CTE view name
         AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
-<<<<<<< HEAD
 
         {% if is_incremental() %}
 
@@ -48,8 +41,3 @@ WITH source -- the CTE view name
 
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
-=======
-    )
-SELECT * FROM source -- from the CTE view build a new reference with this filename
-
->>>>>>> 83c735b (Incremental CICD testing)
