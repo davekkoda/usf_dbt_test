@@ -35,6 +35,7 @@ WITH source -- the CTE view name
         {% if is_incremental() %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         where LAST_UPD_DT > (select max(LAST_UPD_DT) from {{ this }})
 
         {% endif %}
@@ -42,6 +43,8 @@ WITH source -- the CTE view name
 
 =======
         -- this filter will only be applied on an incremental run
+=======
+>>>>>>> 3b4e32b (Working Incremental FCT table in CICD qa branch)
         where LAST_UPD_DT > '{{ get_max_last_upd() }}'
 
         {% endif %}
