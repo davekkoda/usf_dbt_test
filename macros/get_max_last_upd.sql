@@ -4,6 +4,6 @@
     SELECT max(LAST_UPD_DT) FROM {{ this }};
  {% endset %}
   {% set max_last_upd = run_query(query).columns[0][0] %}
-  {% do return(LAST_UPD_DT) %}
+  {% do return(max_last_upd) %}
 {% endif %}
 {% endmacro %}
