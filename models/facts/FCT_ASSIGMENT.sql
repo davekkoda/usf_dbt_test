@@ -34,10 +34,17 @@ WITH source -- the CTE view name
 
         {% if is_incremental() %}
 
+<<<<<<< HEAD
         where LAST_UPD_DT > (select max(LAST_UPD_DT) from {{ this }})
 
         {% endif %}
 
 
+=======
+        -- this filter will only be applied on an incremental run
+
+        {% endif %}
+
+>>>>>>> 45eeb6c (Incremental CICD testing)
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
