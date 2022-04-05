@@ -17,7 +17,7 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,SM.LAST_UPD_DT
+        ,COALESCE(SM.LAST_UPD_DT, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS LAST_UPD_DT
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
