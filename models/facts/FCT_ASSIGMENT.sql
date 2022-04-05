@@ -32,6 +32,12 @@ WITH source -- the CTE view name
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
 
+        {% if is_incremental() %}
+
+        -- this filter will only be applied on an incremental run
+
+        {% endif %}
+
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
 
