@@ -42,6 +42,8 @@ models:
       +materialized: view
 # -- models
     dimensions:
+      +transient: false
       +materialized: table
     facts:
+      +transient: false
       +materialized: incremental
