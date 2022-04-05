@@ -1,5 +1,3 @@
-{{ config(materialized='incremental') }}
-
 WITH source -- the CTE view name
 	AS(
         SELECT SM.WCT_ID
