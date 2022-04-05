@@ -37,6 +37,9 @@ models:
     +persist_docs:
         relation: true
         columns: true
+# -- views
+    int:
+      +materialized: view
 # -- models
     dimensions:
       +materialized: table
