@@ -35,6 +35,7 @@ WITH source -- the CTE view name
         {% if is_incremental() %}
 
         -- this filter will only be applied on an incremental run
+        where LAST_UPD_DT > '{{ get_max_last_upd() }}'
 
         {% endif %}
 
