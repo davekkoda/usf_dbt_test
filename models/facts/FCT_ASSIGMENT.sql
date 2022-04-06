@@ -37,7 +37,6 @@ WITH source -- the CTE view name
         where LAST_UPD_DT > '{{ get_max_last_upd() }}'
 
         {% endif %}
-
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
 
