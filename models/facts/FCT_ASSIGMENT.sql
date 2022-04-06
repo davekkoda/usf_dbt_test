@@ -17,13 +17,13 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,SM.LAST_UPD_DT
+        ,COALESCE(SM.LAST_UPD_DT, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS LAST_UPD_DT
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
-        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD'))AS DIM_DATE_SK
+        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD')) AS DIM_DATE_SK
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
         LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODE_ID = ADJ.JOBCODE_ID
@@ -34,10 +34,10 @@ WITH source -- the CTE view name
 
         {% if is_incremental() %}
 
-        where LAST_UPD_DT > (select max(LAST_UPD_DT) from {{ this }})
+        where LAST_UPD_DT > '{{ get_max_last_upd() }}'
 
         {% endif %}
 
-
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
+
