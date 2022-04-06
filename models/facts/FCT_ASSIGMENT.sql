@@ -31,7 +31,6 @@ WITH source -- the CTE view name
         AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
-<<<<<<< HEAD
 
         {% if is_incremental() %}
 
@@ -51,10 +50,13 @@ WITH source -- the CTE view name
         {% endif %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 45eeb6c (Incremental CICD testing)
 =======
 =======
 >>>>>>> 5818666 (Great Expectations testing)
 >>>>>>> 6533919 (Great Expectations testing)
+=======
+>>>>>>> 1d41593 (rebase and merge with qa-cicd)
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
