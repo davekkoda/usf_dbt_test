@@ -13,6 +13,7 @@ models:
           - dbt_expectations.expect_column_values_to_not_be_null
       - name: ADJ_DURATION
         tests:
+<<<<<<< HEAD
           - dbt_expectations.expect_column_values_to_not_be_null
 =======
 =======
@@ -25,3 +26,6 @@ models:
       tests:
         - dbt_expectations.expect_column_values_to_not_be_null
 >>>>>>> b1ba1ee (added every change and the great expectations test)
+=======
+          - dbt_expectations.expect_column_values_to_not_be_null
+>>>>>>> 507181a (working Great Expectations, first version)

@@ -4,7 +4,7 @@
 
 
 {% macro default__hash(field) -%}
-    MD5_NUMBER_UPPER64(cast({{field}} as {{dbt_utils.type_string()}}))
+    md5(cast({{field}} as {{dbt_utils.type_string()}}))
 {%- endmacro %}
 
 
