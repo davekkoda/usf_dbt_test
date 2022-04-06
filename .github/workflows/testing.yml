@@ -3,7 +3,7 @@ name: Run DBT in QA
 on:
   push:
     branches:
-      - qa-cicd
+      - USFBM-581-great-expectation-implementation
 
 env:
   SNOW_USFBM_ACCOUNT: ${{secrets.SNOW_USFBM_ACCOUNT}}
@@ -38,8 +38,3 @@ jobs:
       - name: Run DBT in QA
         run: |
           dbt run --target qa --profiles-dir .
-
-      # Test dbt
-      - name: Run DBT tests and contstraints in QA
-        run: |
-          dbt test --target qa --profiles-dir .

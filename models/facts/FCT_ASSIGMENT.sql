@@ -1,7 +1,7 @@
 {{ config(materialized='incremental') }}
 
 WITH source -- the CTE view name
-	AS(
+    AS(
         SELECT SM.WCT_ID
         ,SM.WH_CD
         ,SM.USR_ID
