@@ -1,5 +1,6 @@
 version: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 models:
   - name: FCT_ASSIGMENT
@@ -14,6 +15,9 @@ models:
         tests:
           - dbt_expectations.expect_column_values_to_not_be_null
 =======
+=======
+
+>>>>>>> 6533919 (Great Expectations testing)
 models:
   - name: FCT_ASSIGMENT
     columns: 
