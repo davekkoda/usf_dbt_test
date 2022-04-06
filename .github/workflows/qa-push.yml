@@ -38,3 +38,8 @@ jobs:
       - name: Run DBT in QA
         run: |
           dbt run --target qa --profiles-dir .
+
+      # Run dbt
+      - name: Run DBT tests and contstraints in QA
+        run: |
+          dbt test --target qa --profiles-dir .
