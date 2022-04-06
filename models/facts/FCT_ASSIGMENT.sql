@@ -1,7 +1,7 @@
 {{ config(materialized='incremental') }}
 
 WITH source -- the CTE view name
-	AS(
+    AS(
         SELECT SM.WCT_ID
         ,SM.WH_CD
         ,SM.USR_ID
@@ -31,7 +31,5 @@ WITH source -- the CTE view name
         AND   SM.WCT_ID = ADJ.WCT_ID
         AND   SM.KVISUMMARY_ID = ADJ.KVISUMMARY_ID
         AND   SM.SRC_ID = ADJ.SRC_ID
-
-
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
