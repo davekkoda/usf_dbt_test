@@ -1,5 +1,13 @@
 {{ config(materialized='incremental') }}
 
+{% if target.name == 'dev' %}
+{%  set env_user = "SNOW_USFBM_USERNAME_DEV" %}
+{% elif target.name == 'qa' %}
+{% set env_user = "SNOW_USFBM_USERNAME_QA" %}
+{% elif target.name == 'prod' %}
+{% set env_user = "SNOW_USFBM_USERNAME_QA" %}
+{% endif %}
+
 WITH source -- the CTE view name
     AS(
         SELECT SM.WCT_ID
@@ -20,8 +28,8 @@ WITH source -- the CTE view name
         ,COALESCE(SM.LAST_UPD_DT_SRC,ADJ.LAST_UPD_DT_SRC, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS SRC_LAST_UPDATE_DT
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         , CURRENT_DATE() AS LAST_UPDATE_DT
-        ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS MODIFIED_USER_ID
-        ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS LAST_MODIFIED_USER_ID
+        ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
+        ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK

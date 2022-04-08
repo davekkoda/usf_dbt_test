@@ -1,13 +1,20 @@
 {{ config(materialized='incremental', unique_key='DIM_MARKET_PK') }}
 
+{% if target.name == 'dev' %}
+{%  set env_user = "SNOW_USFBM_USERNAME_DEV" %}
+{% elif target.name == 'qa' %}
+{% set env_user = "SNOW_USFBM_USERNAME_QA" %}
+{% elif target.name == 'prod' %}
+{% set env_user = "SNOW_USFBM_USERNAME_QA" %}
+{% endif %}
 WITH source -- the CTE view name
 	AS(
         SELECT DISTINCT
             {{ dbt_utils.surrogate_key(['WH_CD', 'DIV_ID']) }} AS DIM_MARKET_PK
             , *
             , CURRENT_DATE() AS LAST_UPDATE_DT
-            ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS MODIFIED_USER_ID
-            ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS LAST_MODIFIED_USER_ID
+            ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
+            ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
         FROM {{ ref('INT_DIV_CORP') }}
         WHERE IS_ACT = 1
         ORDER BY DIM_MARKET_PK
