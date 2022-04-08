@@ -17,7 +17,7 @@ WITH source -- the CTE view name
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,COALESCE(SM.LAST_UPD_DT, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS LAST_UPD_DT
+        ,COALESCE(SM.LAST_UPD_DT_SRC,ADJ.LAST_UPD_DT_SRC, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS LAST_UPD_DT_SRC
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         ,COALESCE(SM.INS_USER_ID,ADJ.INS_USER_ID) AS INS_USER_ID
         ,COALESCE(SM.LAST_UPD_USER_ID, ADJ.LAST_UPD_USER_ID) AS LAST_UPD_USER_ID
@@ -36,7 +36,7 @@ WITH source -- the CTE view name
 
         {% if is_incremental() %}
 
-        where LAST_UPD_DT > '{{ get_max_last_upd() }}'
+        where LAST_UPD_DT_SRC > '{{ get_max_last_upd() }}'
 
         {% endif %}
     )
