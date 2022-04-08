@@ -18,6 +18,8 @@ WITH source -- the CTE view name
         ,SM.START_TIME
         ,SM.STOP_TIME
         ,SM.LAST_UPD_DT::TIMESTAMP AS LAST_UPD_DT
+        ,SM.INS_USER_ID
+        ,SM.LAST_UPD_USER_ID 
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} AS SM
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
