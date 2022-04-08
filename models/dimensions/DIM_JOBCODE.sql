@@ -1,3 +1,5 @@
+{{ config(materialized='incremental', unique_key='DIM_JOBCODE_PK') }}
+
 WITH source -- the CTE view name
 	AS(
         SELECT DISTINCT

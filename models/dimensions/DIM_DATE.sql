@@ -1,3 +1,5 @@
+{{ config(materialized='incremental', unique_key='DIM_DATE_PK') }}
+
 WITH source -- the CTE view name
 	AS(
         SELECT
