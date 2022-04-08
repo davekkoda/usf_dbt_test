@@ -21,7 +21,7 @@ WITH source -- the CTE view name
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         , CURRENT_DATE() AS LAST_UPDATE_DT
         ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS MODIFIED_USER_ID
-        ,COALESCE(SM.LAST_UPD_USER_ID, ADJ.LAST_UPD_USER_ID) AS LAST_UPD_USER_ID
+        ,'{{ env_var('SNOW_USFBM_USERNAME_DEV') }}' AS LAST_MODIFIED_USER_ID
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
