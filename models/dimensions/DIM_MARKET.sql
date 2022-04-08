@@ -2,8 +2,8 @@
 
 WITH source -- the CTE view name
 	AS(
-        SELECT
-            {{ dbt_utils.surrogate_key(['WH_CD']) }} AS DIM_MARKET_PK
+        SELECT DISTINCT
+            {{ dbt_utils.surrogate_key(['WH_CD', 'DIV_ID']) }} AS DIM_MARKET_PK
             , *
         FROM {{ ref('INT_DIV_CORP') }}
         WHERE IS_ACT = 1

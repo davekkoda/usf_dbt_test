@@ -1,7 +1,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT 
-            {{ dbt_utils.surrogate_key(['WH_CD', 'RPRT_DT_TM']) }} AS DIM_DRIVER_PK
+            {{ dbt_utils.surrogate_key(['WH_CD', 'RPRT_DT_TM', 'DRVR_ID', 'DRVR_NM']) }} AS DIM_DRIVER_PK
             , *
             
         FROM {{ ref('INT_DRIVER_LOG_HDR') }}
