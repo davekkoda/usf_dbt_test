@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: FCT_ASSIGMENT
+    columns: 
+      - name: ACTUAL_SECONDS
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: GOAL_SECONDS
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: ADJ_DURATION
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null

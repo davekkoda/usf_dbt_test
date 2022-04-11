@@ -8,6 +8,9 @@ WITH source -- the CTE view name
         ,ADJ.WCT_INT_ID AS WCT_ID
         ,ADJ.KVISUMMARYINTID AS KVISUMMARY_ID
         ,ADJ.SRC_ID
+        ,ADJ.LAST_UPD_DT::TIMESTAMP AS LAST_UPD_DT_SRC
+        ,ADJ.INS_USER_ID
+        ,ADJ.LAST_UPD_USER_ID
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} AS ADJ
 
     )

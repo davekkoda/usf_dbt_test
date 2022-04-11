@@ -10,13 +10,16 @@ WITH source -- the CTE view name
         ,SM.ISMEASURED
         ,SM.ACTUAL_SECONDS
         ,SM.GOAL_SECONDS
-        ,SM.KVI_TMU_05
+        ,SM.KVI_TMU_05 AS CASES
         ,SM.ASSIGN_NUM
         ,SM.JOBCODEINTID AS JOBCODE_ID
         ,SM.KVISUMMARYINTID AS KVISUMMARY_ID
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
+        ,SM.LAST_UPD_DT::TIMESTAMP AS LAST_UPD_DT_SRC
+        ,SM.INS_USER_ID
+        ,SM.LAST_UPD_USER_ID 
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} AS SM
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename

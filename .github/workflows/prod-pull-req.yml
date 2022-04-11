@@ -37,8 +37,12 @@ jobs:
           dbt deps
 
 #------ CHANGE TO PROD ------
+    # Run dbt
+      - name: Compile DBT in QA
+        run: |
+          dbt compile --target prod --profiles-dir . --full-refresh
 
       # Run dbt
       - name: Run DBT in PROD
         run: |
-          dbt run --target prod --profiles-dir .
+          dbt run --target prod --profiles-dir . --full-refresh
