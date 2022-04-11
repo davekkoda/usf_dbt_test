@@ -4,7 +4,7 @@
 {% elif target.name == 'qa' %}
 {% set env_user = "SNOW_USFBM_USERNAME_QA" %}
 {% elif target.name == 'prod' %}
-{% set env_user = "SNOW_USFBM_USERNAME_QA" %}
+{% set env_user = "SNOW_USFBM_USERNAME_PROD" %}
 {% endif %}
 WITH source -- the CTE view name
 	AS(
