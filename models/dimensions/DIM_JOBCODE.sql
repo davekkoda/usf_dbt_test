@@ -9,7 +9,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT DISTINCT
-            {{ dbt_utils.surrogate_key(['WH_CD', 'JOBCODE_ID', 'SRC_ID']) }} AS DIM_JOBCODE_PK
+            {{ surrogate_key_int(['WH_CD', 'JOBCODE_ID', 'SRC_ID']) }} AS DIM_JOBCODE_PK
             , *
             , CURRENT_DATE() AS LAST_UPDATE_DT
             ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
