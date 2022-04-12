@@ -30,10 +30,10 @@ WITH source -- the CTE view name
         , CURRENT_DATE() AS LAST_UPDATE_DT
         ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
         ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_CD']) }} AS DIM_MARKET_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
-        ,{{ dbt_utils.surrogate_key(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
+        ,{{ surrogate_key_int(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
+        ,{{ surrogate_key_int(['SM.WH_CD']) }} AS DIM_MARKET_SK
+        ,{{ surrogate_key_int(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
+        ,{{ surrogate_key_int(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
         ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD')) AS DIM_DATE_SK
         FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
         LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ

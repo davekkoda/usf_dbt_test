@@ -11,7 +11,7 @@
 WITH source -- the CTE view name
 	AS(
         SELECT 
-            {{ dbt_utils.surrogate_key(['WH_CD']) }} AS DIM_MARKET_PK -- , 'DIV_ID'
+            {{ surrogate_key_int(['WH_CD']) }} AS DIM_MARKET_PK -- , 'DIV_ID'
             , *
             , CURRENT_DATE() AS LAST_UPDATE_DT
             ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID

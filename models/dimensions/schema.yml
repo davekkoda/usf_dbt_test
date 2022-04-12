@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: DIM_DATE
+    columns: 
+      - name: DIM_DATE_PK
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
