@@ -71,13 +71,13 @@ models:
       - name: GRG_CLNDR_YR_MTH_YRAGO
         description: Same Month Prior Year for a given Calendar Date in the Gregorian Calendar
       - name: LIC_THURS_DT
-        description: Primary Key for Calendar Dimension for each Day
+        description: Last Invoice Cost Thursday Date
       - name: FST_BUS_DT_NEXT_MONTH
         description: Date value for the first business day of the next Month for a given calendar date
       - name: ORD_GD_GEN_DT
-        description: Primary Key for Calendar Dimension for each Day
+        description: Order Goods General Date
       - name: MON_AFTER_LIC_THURS_DT
-        description: Primary Key for Calendar Dimension for each Day
+        description: Monday after Last Invoice Cost Thursday Date
       - name: CLNDR_DT_WKAGO
         description: Same Day Prior Week for a given calendar date      
   - name: DIM_JOBCODE
