@@ -47,3 +47,5 @@ models:
     facts:
       +transient: false
       +materialized: incremental
+    views:
+      +materialized: view    

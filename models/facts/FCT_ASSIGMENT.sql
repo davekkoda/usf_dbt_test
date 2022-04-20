@@ -27,7 +27,7 @@ WITH source -- the CTE view name
         ,SM.STOP_TIME
         ,COALESCE(SM.LAST_UPD_DT_SRC,ADJ.LAST_UPD_DT_SRC, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS SRC_LAST_UPDATE_DT
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
-        , CURRENT_DATE() AS LAST_UPDATE_DT
+        , CURRENT_DATE AS LAST_UPDATE_DT
         ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
         ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
         ,{{ surrogate_key_int(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK

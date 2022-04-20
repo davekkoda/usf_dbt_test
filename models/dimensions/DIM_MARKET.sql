@@ -17,7 +17,6 @@ WITH source -- the CTE view name
             ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
             ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
         FROM {{ ref('INT_DIV_CORP') }}
-        WHERE IS_ACT = 1
         ORDER BY DIM_MARKET_PK
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
