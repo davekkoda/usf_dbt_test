@@ -85,9 +85,13 @@ models:
       - name: DIRECT
         description: Direct Hours Flag for Job Code Type and Warehouse Code
       - name: JOBCODE_CD
-        description: Job Code ID
+        description: Job Code
       - name: WH_CD
-        description: Job Code ID   
+        description: Warehouse Code  
+      - name: JOBCODE_ID
+        description: Job Code ID
+      - name: SRC_ID
+        description: Source ID for the event                    
       - name: DIM_JOBCODE_PK
         description: Primary Key for the Job Code - derived from Business Key set Job Code ID and Warehouse Code                                   
   - name: DIM_MARKET
