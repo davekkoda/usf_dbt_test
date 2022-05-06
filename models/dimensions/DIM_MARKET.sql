@@ -11,12 +11,12 @@
 WITH source -- the CTE view name
 	AS(
         SELECT 
-            {{ surrogate_key_int(['WH_CD']) }} AS DIM_MARKET_PK -- , 'DIV_ID'
+            {{ surrogate_key_int(['WH_CD']) }} AS DIM_MARKET_SK -- , 'DIV_ID'
             , *
             , CURRENT_DATE() AS LAST_UPDATE_DT
             ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
             ,'{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-        FROM {{ ref('INT_DIV_CORP') }}
-        ORDER BY DIM_MARKET_PK
+        FROM {{ ref('VW_DIV_CORP') }}
+        ORDER BY DIM_MARKET_SK
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename

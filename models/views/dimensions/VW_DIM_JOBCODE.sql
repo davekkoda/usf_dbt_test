@@ -1,10 +1,10 @@
 {{ config(
-    enabled=true,
+    enabled=false,
     materialized='view'
 )}}
 
 WITH
-     SOURCE AS (SELECT DIM_JOBCODE_PK
+     SOURCE AS (SELECT DIM_JOBCODE_SK
                      , DIRECT
                      , JOBCODE_CD
                      , WH_CD

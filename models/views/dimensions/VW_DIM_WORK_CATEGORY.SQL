@@ -4,7 +4,7 @@
 )}}
 
 WITH
-     SOURCE AS (     SELECT DIM_WORK_CATEGORY_PK
+     SOURCE AS (     SELECT DIM_WORK_CATEGORY_SK
           , WCT_ID
           , WCT_NAME
           , WH_CD

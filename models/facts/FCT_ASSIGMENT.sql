@@ -14,18 +14,18 @@ WITH source -- the CTE view name
         ,SM.WH_CD
         ,SM.USR_ID
         ,SM.DIRECT
-        ,SM.REPORT_DATE
+        ,SM.REPORT_DT
         ,SM.ISMEASURED
         ,COALESCE(SM.ACTUAL_SECONDS,0) AS ACTUAL_SECONDS
         ,COALESCE(SM.GOAL_SECONDS,0) AS GOAL_SECONDS
-        ,COALESCE(SM.CASES,0) AS CASES
-        ,SM.ASSIGN_NUM
+        ,COALESCE(SM.CASES_QTY,0) AS CASES_QTY
+        ,SM.ASSIGN_NB
         ,SM.JOBCODE_ID
         ,SM.KVISUMMARY_ID
         ,SM.SRC_ID
         ,SM.START_TIME
         ,SM.STOP_TIME
-        ,COALESCE(SM.LAST_UPD_DT_SRC,ADJ.LAST_UPD_DT_SRC, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS SRC_LAST_UPDATE_DT
+        ,COALESCE(SM.LAST_UPD_TMST_SRC,ADJ.LAST_UPD_TMST_SRC, '2017-01-05 04:40:22.566 -0800'::TIMESTAMP) AS SRC_LAST_UPDATE_TMST
         ,COALESCE(ADJ.ADJ_DURATION,0) AS ADJ_DURATION
         , CURRENT_DATE AS LAST_UPDATE_DT
         ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID
@@ -33,10 +33,10 @@ WITH source -- the CTE view name
         ,{{ surrogate_key_int(['SM.WH_CD', 'SM.WCT_ID', 'SM.SRC_ID']) }} AS DIM_WORK_CATEGORY_SK
         ,{{ surrogate_key_int(['SM.WH_CD']) }} AS DIM_MARKET_SK
         ,{{ surrogate_key_int(['SM.WH_CD', 'SM.JOBCODE_ID', 'SM.SRC_ID']) }} AS DIM_JOBCODE_SK
-        ,{{ surrogate_key_int(['SM.WH_CD', 'SM.REPORT_DATE']) }} AS DIM_DRIVER_SK
-        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DATE),'YYYYMMDD')) AS DIM_DATE_SK
-        FROM {{ ref( 'INT_KVI_SUMMARY') }} AS SM
-        LEFT OUTER JOIN {{ ref('INT_KVI_ADJUSTMENTS') }} AS ADJ
+        ,{{ surrogate_key_int(['SM.WH_CD', 'SM.REPORT_DT']) }} AS DIM_DRIVER_SK
+        ,TO_NUMBER(TO_CHAR(TO_DATE(SM.REPORT_DT),'YYYYMMDD')) AS DIM_DATE_SK
+        FROM {{ ref( 'VW_KVI_SUMMARY') }} AS SM
+        LEFT OUTER JOIN {{ ref('VW_KVI_ADJUSTMENTS') }} AS ADJ
         ON   SM.JOBCODE_ID = ADJ.JOBCODE_ID
         AND   SM.WH_CD = ADJ.WH_CD
         AND   SM.WCT_ID = ADJ.WCT_ID
@@ -50,4 +50,3 @@ WITH source -- the CTE view name
         {% endif %}
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
-
