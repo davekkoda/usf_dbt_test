@@ -10,11 +10,11 @@ WITH
                     DAT.CLNDR_WK_STRT_DT
                      , FCT.DIM_MARKET_SK
                      , FCT.DIM_JOBCODE_SK
-                     ,(CASE WHEN WCT.WCT_NAME = 'Receiving' THEN 'DAY'
-                            WHEN WCT.WCT_NAME = 'Putaway' THEN 'DAY'
-                            WHEN WCT.WCT_NAME= 'Selection Shipped' OR WCT.WCT_NAME = 'Selection Merged'
+                     ,(CASE WHEN WCT.WCT_NM = 'Receiving' THEN 'DAY'
+                            WHEN WCT.WCT_NM = 'Putaway' THEN 'DAY'
+                            WHEN WCT.WCT_NM= 'Selection Shipped' OR WCT.WCT_NM = 'Selection Merged'
                             THEN 'NIGHT'
-                            WHEN WCT.WCT_NAME = 'Loading' THEN 'NIGHT'
+                            WHEN WCT.WCT_NM = 'Loading' THEN 'NIGHT'
                             WHEN CAST(SUBSTRING(FCT.START_TIME, 12, 2) AS int) < 17
                              AND CAST(SUBSTRING(FCT.START_TIME, 12, 2) AS int) >=5
                             THEN 'DAY'
