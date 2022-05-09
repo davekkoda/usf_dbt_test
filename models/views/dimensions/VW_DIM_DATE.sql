@@ -4,7 +4,7 @@
 )}}
 
 WITH
-     SOURCE AS (SELECT DIM_DATE_PK
+     SOURCE AS (SELECT DIM_DATE_SK
                      , CLNDR_DT
                      , CLNDR_DAY_NM
                      , CLNDR_MTH_NM

@@ -4,7 +4,7 @@
 )}}
 
 WITH
-     SOURCE AS (SELECT DIM_DRIVER_PK
+     SOURCE AS (SELECT DIM_DRIVER_SK
                      , WH_CD
                      , RPRT_DT_TM::DATE
                      , DRVR_ID

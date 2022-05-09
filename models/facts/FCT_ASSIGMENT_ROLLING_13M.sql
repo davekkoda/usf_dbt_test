@@ -24,7 +24,7 @@ WITH source -- the CTE view name
         ,FCT.SRC_ID
         ,FCT.START_TIME
         ,FCT.STOP_TIME
-        ,FCT.SRC_LAST_UPDATE_DT
+        ,FCT.SRC_LAST_UPDATE_TMST
         ,COALESCE(FCT.ADJ_DURATION,0) AS ADJ_DURATION
         , CURRENT_DATE() AS LAST_UPDATE_DT
         ,'{{ env_var(env_user) }}' AS MODIFIED_USER_ID

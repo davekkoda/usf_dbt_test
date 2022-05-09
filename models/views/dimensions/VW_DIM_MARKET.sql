@@ -4,7 +4,7 @@
 )}}
 
 WITH
-     SOURCE AS (SELECT DIM_MARKET_PK
+     SOURCE AS (SELECT DIM_MARKET_SK
                      , CMPNY_DESC
                      , AREA_NM
                      , RGN_CD

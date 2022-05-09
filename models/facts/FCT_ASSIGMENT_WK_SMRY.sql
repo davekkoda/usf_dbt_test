@@ -57,11 +57,11 @@ WITH
                      , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
                   FROM {{ ref('FCT_ASSIGMENT') }} FCT
                   JOIN {{ ref('DIM_DATE') }} DAT
-                    ON FCT.DIM_DATE_SK = DAT.DIM_DATE_PK
+                    ON FCT.DIM_DATE_SK = DAT.DIM_DATE_SK
                   JOIN {{ ref('DIM_JOBCODE') }} JOB
-                    ON FCT.DIM_JOBCODE_SK = JOB.DIM_JOBCODE_PK
+                    ON FCT.DIM_JOBCODE_SK = JOB.DIM_JOBCODE_SK
                   JOIN {{ ref('DIM_WORK_CATEGORY') }} WCT
-                    ON FCT.DIM_WORK_CATEGORY_SK = WCT.DIM_WORK_CATEGORY_PK
+                    ON FCT.DIM_WORK_CATEGORY_SK = WCT.DIM_WORK_CATEGORY_SK
               GROUP BY DAT.CLNDR_WK_STRT_DT
                      , FCT.DIM_MARKET_SK
                      , FCT.DIM_JOBCODE_SK

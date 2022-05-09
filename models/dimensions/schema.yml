@@ -4,11 +4,12 @@ models:
   - name: DIM_DATE
     description: Calendar dimension that shows all calendar attributes for a given calendar date from 2019 - 2035
     columns: 
-      - name: DIM_DATE_PK
+      - name: DIM_DATE_SK
         description: Primary Key for Calendar Dimension for each Day
         tests:
           - dbt_expectations.expect_column_values_to_be_unique
       - name: CLNDR_DT
+        detail: Calendar Date
         description: Calendar Date in YYYY-MM-DD format
       - name: CLNDR_DAY_NM
         description: Name of the Calendar Date (e.g. SUNDAY, MONDAY, etc.)
@@ -92,11 +93,11 @@ models:
         description: Job Code ID
       - name: SRC_ID
         description: Source ID for the event                    
-      - name: DIM_JOBCODE_PK
+      - name: DIM_JOBCODE_SK
         description: Primary Key for the Job Code - derived from Business Key set Job Code ID and Warehouse Code                                   
   - name: DIM_MARKET
     columns:
-      - name: DIM_MARKET_PK
+      - name: DIM_MARKET_SK
         description: Primary Key for the Market - derived from Business Key set of Warehouse Code
     columns:
       - name: WH_CD
@@ -139,7 +140,7 @@ models:
         description: Warehouse Code
       - name: WCT_NAME
         description: WWork Category Name for the respective Work Category and Warehouse Name
-      - name: DIM_WORK_CATEGORY_PK                        
+      - name: DIM_WORK_CATEGORY_SK                        
         description: Primary Key for the Market - derived from Business Key set of Warehouse Code and Work Category ID
   
   
