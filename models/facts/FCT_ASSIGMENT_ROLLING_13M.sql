@@ -13,12 +13,12 @@ WITH source -- the CTE view name
         ,FCT.WH_CD
         ,FCT.USR_ID
         ,FCT.DIRECT
-        ,FCT.REPORT_DATE
+        ,FCT.REPORT_DT
         ,FCT.ISMEASURED
         ,COALESCE(FCT.ACTUAL_SECONDS,0) AS ACTUAL_SECONDS
         ,COALESCE(FCT.GOAL_SECONDS,0) AS GOAL_SECONDS
-        ,COALESCE(FCT.CASES,0) AS CASES
-        ,FCT.ASSIGN_NUM
+        ,COALESCE(FCT.CASES_QTY,0) AS CASES_QTY
+        ,FCT.ASSIGN_NB
         ,FCT.JOBCODE_ID
         ,FCT.KVISUMMARY_ID
         ,FCT.SRC_ID
@@ -37,7 +37,7 @@ WITH source -- the CTE view name
         FROM {{ ref( 'FCT_ASSIGMENT') }} AS FCT
         WHERE
         1=1
-        AND  FCT.REPORT_DATE BETWEEN DATE_TRUNC(Month,ADD_MONTHS(CURRENT_DATE,-13)) AND DATEADD(day,-1,current_date)
+        AND  FCT.REPORT_DT BETWEEN DATE_TRUNC(Month,ADD_MONTHS(CURRENT_DATE,-13)) AND DATEADD(day,-1,current_date)
     )
 SELECT * FROM source -- from the CTE view build a new reference with this filename
 
