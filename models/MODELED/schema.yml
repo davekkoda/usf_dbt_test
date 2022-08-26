@@ -1,0 +1,297 @@
+version: 2
+
+models:
+
+  - name: DIM_DATE
+    description: Calendar dimension that shows all calendar attributes for a given calendar date from 2019 - 2035
+    columns: 
+      - name: DIM_DATE_SK
+        description: Generated Surrogate Key for Calendar Dimension for each Day
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+      - name: CLNDR_DT
+        detail: Calendar Date
+        description: Calendar Date in YYYY-MM-DD format
+      - name: CLNDR_DAY_NM
+        description: Name of the Calendar Date (e.g. SUNDAY, MONDAY, etc.)
+      - name: CLNDR_MTH_NM
+        description: Name of the month for the Calendar Date (e.g. JANUARY, FEBRUARY, etc.)
+      - name: CLNDR_YR
+        description: Year of the Calendar Date (e.g. 2009, 2010)
+      - name: CLNDR_DAY_OF_WK
+        description: Integer value calendar Day of the Week from 1- 7 where 1 is Sunday, 2 is Monday, etc.
+      - name: CLNDR_DAY_OF_MTH
+        description: Integer value of the day within the month (e.g. 28, 29, 30)
+      - name: CLNDR_MTH_OF_YR
+        description: Integer value fo the Fiscal Month Name for the Calendar Date in the Fiscal Year (1 is January, 2 is February, 3 is March, etc.)
+      - name: CLNDR_YR_QTR
+        description: String composite of the Calendar Days Year and Quarter (e.g. 2020Q1, 2020Q2, 2020Q3, etc.)
+      - name: CLNDR_YR_MTH
+        description: Integer composite of the Calendar Days Year and Month (e.g. 202012, 202101, 202102, etc.)
+      - name: FISC_YR
+        description: Integer Fiscal Year for the Calendar Date (e.g. 2020, 2021, 2022)
+      - name: FISC_DAY_OF_YR
+        description: Integer Fiscal Day Of the Year for the Calendar Date (e.g. 1, 2, … 365, etc.)
+      - name: FISC_DAY_NM
+        description: Fiscal Day Name of the Calendar Date (e.g. SUNDAY, MONDAY, etc.)
+      - name: FISC_WK_OF_YR
+        description: Integer value of the Fiscal Week in the Year for a Calendar Date (e.g. 49, 50, 51, 52, etc.)
+      - name: FISC_WK_OF_PRD
+        description: Integer value of the Fiscal Week in the Period for a Calendar Date (e.g. 49, 50, 51, 52, etc.)
+      - name: FISC_MTH_OF_YR
+        description: Integer value fo the Fiscal Month Name for the Calendar Date in the Fiscal Year (1 is January, 2 is February, 3 is March, etc.)
+      - name: FISC_MTH_NM
+        description: Name of the Fiscal Month for the Calendar Date (e.g. JANUARY, FEBRUARY, etc.)
+      - name: FISC_QTR_OF_YR
+        description: String value of the Fiscal Quarter for the Calendar Date (e.g. Q1, Q2, Q3, Q4)
+      - name: FISC_HALF_OF_YR
+        description: String value of the Fiscal Half for the Calendar Date (e.g. H1, H2)
+      - name: FISC_YR_QTR
+        description: String composite of the Fiscal Year and Fiscal Quarter for the Calendar Date (e.g. 2020Q1, 2020Q2, 2020Q3, etc.)
+      - name: FISC_YR_MTH
+        description: Integer composite of the Fiscal Year and Fiscal Month for the Calendar Date (e.g. 202012, 202101, 202102, etc.)
+      - name: FISC_YR_WK
+        description: Integer composite of the Fiscal Year and Fiscal Week for the Calendar Date (e.g. 202022, 202023, 202024, etc.)
+      - name: FISC_WKS_THIS_PD
+        description: Integer value that shows total number of Fiscal Weeks within the Period
+      - name: TM_SK_YRAGO
+        description: Same Day Prior Year for a given Calendar Date surrogate key
+      - name: CLNDR_DT_YRAGO
+        description: Same Day Prior Year for a given Calendar Date
+      - name: FISC_PRD_NM
+        description: Fiscal Period Name for a given Period
+      - name: GRG_CLNDR_DT_YRAGO
+        description: Same Day Prior Year for a given Calendar Date in the Gregorian Calendar
+      - name: CLNDR_WK_STRT_DT
+        description: Week Start Date for the Calendar Date
+      - name: CLNDR_WK_END_DT
+        description: Calendar Week End Date for the Calendar Date
+      - name: CLNDR_WK_NM
+        description: String Composite that shows the Week Start Date and Week End Date (e.g. 05/16/2021 - 05/22/2021)
+      - name: CLNDR_MTH_NM_YR
+        description: String composite of the Calendar Month Name with the Calendar Year (e.g. MARCH 2022, APRIL 2022, etc.)
+      - name: GRG_CLNDR_YR_MTH_YRAGO
+        description: Same Month Prior Year for a given Calendar Date in the Gregorian Calendar
+      - name: LIC_THURS_DT
+        description: Last Invoice Cost Thursday Date
+      - name: FST_BUS_DT_NEXT_MONTH
+        description: Date value for the first business day of the next Month for a given calendar date
+      - name: ORD_GD_GEN_DT
+        description: Order Goods General Date
+      - name: MON_AFTER_LIC_THURS_DT
+        description: Monday after Last Invoice Cost Thursday Date
+      - name: CLNDR_DT_WKAGO
+        description: Same Day Prior Week for a given calendar date      
+
+  - name: DIM_JOB_CODE
+    columns:
+      - name: JOB_CODE_SK
+        description: Generated SK for Job Code
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+      - name: JOB_CODE_ID
+        description: Existing Primary Key ID of Job Code
+      - name: JOB_CODE_NM
+        description: Job Code Name
+      - name: Job_CODE_DSC
+        description: Description of the Job Code
+      - name: MARKET_ID
+        description: Market ID or (Branch Code, Warehouse ID)
+      - name: CUSTOM_WORK_CATEGORY
+        description: User-Defined Job Category (Support, Indirect, etc..) by CASE Statements on Job Codes
+      - name: WORK_CATEGORY
+        description: Job Category (Support, Indirect, etc..) defined in Work Category Table 
+      - name: AISLE_AREA_ID
+        description: Aisle Area ID
+      - name: AISLE_AREA_NM
+        description: Area of a warehouse. For example 'DRY', 'CLR', 'COOLER', 'FREEZER' and 'FRZ'
+      - name: BREAK_FLG
+        description: Flag for Job Code being Break/Non-break
+      - name: MEASURED_FLG
+        description: Flag for Job Code being Measured/Non-measured
+      - name: PAID_FLG
+        description: Flag for Job Code being Paid/Non-paid
+      - name: DIRECT_FLG
+        description: Flag for Job Code being Direct/Indirect
+      - name: REQ_APPROVAL_FLG
+        description: Flag for Job Code requiring Approval/None
+      - name: MASK_LEVEL
+        description: Mask Level code for security
+      - name: EXT_ASSIGNMENT_TIME
+        description: Assignment Time spent for external
+      - name: INT_ASSIGNMENT_TIME
+        description: Assignment Time spent for internal
+      - name: EXT_ORDER_TIME
+        description: Order Time spent for external
+      - name: INT_ORDER_TIME
+        description: Order Time spent for internal
+      - name: SRC_ID
+        description: Version of Red Prairie when the activity occurs.
+
+  - name: DIM_MARKET
+    columns:
+      - name: DIM_MARKET_SK
+        description: Primary Key for the Market - derived from Business Key set of Warehouse Code
+        tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+    columns:
+      - name: WH_CD
+        description: Warehouse Code for the respective market  
+    columns:
+      - name: DIV_TYP_CD
+        description: Division Type Code for the respective market  
+    columns:
+      - name: DIV_ID
+        description: A 4-digit number given to each Division  
+    columns:
+      - name: DIV_NM
+        description: Division name of the market 
+    columns:
+      - name: RGN_NM
+        description: Region name that the market is located  
+    columns:
+      - name: RGN_CD
+        description: Region code that the market is located  
+    columns:
+      - name: CMPNY_DESC
+        description: Company description for the respective market, e.g. Broadline
+    columns:
+      - name: AREA_NM
+        description: Name of the area that the market is located  
+    columns:
+      - name: DIV_NM_CD_NBR
+        description: Combination of the Division Name, Divison Code, and Division Number for the respective market  
+    columns:
+      - name: PRCS_SYS
+        description: Process source system for the respective market  
+    columns:
+      - name: ZIP_CD
+        description: Zip code where the market is located                                                                                         
+
+  - name: DIM_PAY_CODE
+    columns:
+      - name: PAY_CODE_SK
+        description: Generated SK for Pay Code
+      - name: PAY_CODE_ID
+        description: Existing Primary Key ID of Pay Code
+      - name: PAY_CODE_NM
+        description: Name of Pay Code
+      - name: PAY_CODE_TYPE
+        description: Type of pay code (e.g. G, P)
+      - name: PAY_CODE_CATEGORY
+        description: Categorical grouping of Pay Code (e.g. Regular, Holiday, etc..)
+      - name: EXCUSED_ABSENCE_FLG
+        description: Flag for an excused absence pay code.
+      - name: WAGE_ADDITION 
+        description: Additional wage for employee.
+      - name: WAGE_MULTIPLIER 
+        description: Wage multiplier for a pay code.
+
+  - name: DIM_LABOR_ACCT
+    columns:
+      - name: LABOR_ACCT_SK
+        description: Generated SK for Labor Account
+      - name: LABOR_ACCT_ID
+        description: Existing Primary Key ID of Labor Account
+      - name: JOB_ID
+        description: Job ID (e.g. 8209)
+      - name: JOB_CD
+        description: Job Code (e.g. N7233)
+      - name: JOB_DSC
+        description: Job Descriptive Name (e.g. Custodian)
+      - name: DEPT_ID
+        description: Department ID (e.g. 102)
+      - name: DEPT_CD
+        description: Department Code (e.g. 820)
+      - name: DEPT_DSC
+        description: Department Descriptive Name (e.g. Day Warehouse)
+      - name: MARKET_ID
+        description: Market ID (e.g. 6401)
+      - name: MARKET_CD
+        description: Market Code (e.g. 3V)
+      - name: MARKET_DSC
+        description: Market Descriptive Name (e.g. INDIANAPOLIS)
+      - name: REGION_ID
+        description: Region ID (e.g. 15205)
+      - name: REGION_CD
+        description: Region Code (e.g. NER0)
+      - name: REGION_DSC
+        description: Region Descriptive Name (e.g. Region - Northeast)
+
+  - name: FCT_TIMESHEET_ACTIVITY
+    description: Fact table containing all facts of the model
+    columns:
+      - name: WH_CD
+        description: Work Category CD for the event
+      - name: USR_ID
+        description: User ID for the Event
+      - name: DIRECT
+        description: Binary Form - Indicates if it is direct hours or indirect hours. 1 - Direct 0 - Indirect
+      - name: REPORT_DATE
+        description: Date for the assignment event
+      - name: ISMEASURED
+        description: Flag indicating whether if Job Code Assignment has engineering standards or not, 1- yes, 0- no.                                  
+      - name: ACTUAL_SECONDS
+        description: Actual time when the assignment stopped for an employee in a warehouse in seconds.      
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: GOAL_SECONDS
+        description: Engineering standards set for job code. Essentially the expected times (in seconds) it takes for a user to complete a task. Measured in seconds.            
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: ADJ_DURATION
+        description: Adjusted Duration for the event, including start time through end time plus any manual modifications
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: CASES
+        description: Renamed from KVI_TMU_05. Definition":" Cases when work category":" Receiving, selection. Pallets when work category":" Building pallet move, Hauling, Letdown, Loading and putaway.
+      - name: ASSIGN_NUM
+        description: Number associated with the type of work assigned to an employee within a warehouse. Source is KVI_SUMMARY.ASSIGN_NUM column
+      - name: JOBCODE_ID
+        description: Job Code ID for the Event
+      - name: KVISUMMARY_ID
+        description: KVI Summary ID from the KVI_SUMMARY_TABLE
+      - name: SRC_ID
+        description: Source ID for the event                                 
+      - name: START_TIME
+        description: Start Time for the event
+      - name: STOP_TIME
+        description: Stop Time for the event
+      - name: DIM_WORK_CATEGORY_SK
+        description: FK to DIM_WORK_CATEGORY replaces WCT_INT_ID column.                           
+      - name: DIM_MARKET_SK
+        description: FK to the DIM_MARKET table. DIM_MARKET includes the BRNCH_CD which appears to be the Warehouse Id 
+      - name: DIM_JOBCODE_SK
+        description: FK to Job Code Dimension to allow joins to Job Code data.
+      - name: DIM_DRIVER_SK
+        description: FK to Driver Dimension to allow joins to driver data.
+      - name: DIM_DATE_SK
+        description: FK from DATE dim to replace column REPORT_DATE from original table.
+
+  - name: FCT_WH_PRODUCTIVITY
+    description: Fact table containing week summary
+    columns:
+      - name: CLNDR_WK_STRT_DT
+        description: Week Start Date that can be joined on the Calendar Date in the Date Dimesnion.
+      - name: DIM_MARKET_SK
+        description: Market Surrogate Key to join to the Market Dimension.                   
+      - name: DIM_JOBCODE_SK
+        description: Job Code Surrogate Key to join to the Job Code Dimension.
+      - name: DAY_NIGHT
+        description: Boolean Flag for Day or Night shift for the event.
+      - name: MEASURED_DIRECT
+        description: Measured Direct Hours for the respective Job Code, Market, Week, Work Category.
+      - name: MEASURED_INDIRECT
+        description: Measured Indirect Hours for the respective Job Code, Market, Week, Work Category.
+      - name: UNMEASURED_DIRECT
+        description: Unmeasured Direct Hours for the respective Job Code, Market, Week, Work Category
+      - name: UNMEASURED_INDIRECT
+        description: Unmeasured Indirect Hours for the respective Job Code, Market, Week, Work Category.                      
+      - name: UNPAID_BREAK
+        description: Unpaid break hours for the respective Job Code, Market, Week, Work Category
+      - name: PAID_BREAK
+        description: Paid break hours for the respective Job Code, Market, Week, Work Category 
+      - name: INSERTED_DIRECT
+        description: Inserted direct hours for the respective Job Code, Market, Week, Work Category
+      - name: GOAL_HOURS
+        description: Goal hours for the respective Job Code, Market, Week, Work Category.

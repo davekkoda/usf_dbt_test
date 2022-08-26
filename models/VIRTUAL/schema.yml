@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: FCT_TIMESHEET_ACTIVITY
+    description: Fact table containing all facts of the model
+    columns:
+      - name: WH_CD
+        description: Work Category CD for the event
+      - name: USR_ID
+        description: User ID for the Event
+      - name: DIRECT
+        description: Binary Form - Indicates if it is direct hours or indirect hours. 1 - Direct 0 - Indirect
+      - name: REPORT_DATE
+        description: Date for the assignment event
+      - name: ISMEASURED
+        description: Flag indicating whether if Job Code Assignment has engineering standards or not, 1- yes, 0- no.
+      - name: ACTUAL_SECONDS
+        description: Actual time when the assignment stopped for an employee in a warehouse in seconds.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: GOAL_SECONDS
+        description: Engineering standards set for job code. Essentially the expected times (in seconds) it takes for a user to complete a task. Measured in seconds.
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: ADJ_DURATION
+        description: Adjusted Duration for the event, including start time through end time plus any manual modifications
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+      - name: CASES
+        description: Renamed from KVI_TMU_05. Definition":" Cases when work category":" Receiving, selection. Pallets when work category":" Building pallet move, Hauling, Letdown, Loading and putaway.
+      - name: ASSIGN_NUM
+        description: Number associated with the type of work assigned to an employee within a warehouse. Source is KVI_SUMMARY.ASSIGN_NUM column
+      - name: JOBCODE_ID
+        description: Job Code ID for the Event
+      - name: KVISUMMARY_ID
+        description: KVI Summary ID from the KVI_SUMMARY_TABLE
+      - name: SRC_ID
+        description: Source ID for the event
+      - name: START_TIME
+        description: Start Time for the event
+      - name: STOP_TIME
+        description: Stop Time for the event
+      - name: DIM_WORK_CATEGORY_SK
+        description: FK to DIM_WORK_CATEGORY replaces WCT_INT_ID column.
+      - name: DIM_MARKET_SK
+        description: FK to the DIM_MARKET table. DIM_MARKET includes the BRNCH_CD which appears to be the Warehouse Id
+      - name: DIM_JOBCODE_SK
+        description: FK to Job Code Dimension to allow joins to Job Code data.
+      - name: DIM_DRIVER_SK
+        description: FK to Driver Dimension to allow joins to driver data.
+      - name: DIM_DATE_SK
+        description: FK from DATE dim to replace column REPORT_DATE from original table.
+
+  - name: FCT_WH_PRODUCTIVITY
+    description: Fact table containing week summary
+    columns:
+      - name: CLNDR_WK_STRT_DT
+        description: Week Start Date that can be joined on the Calendar Date in the Date Dimesnion.
+      - name: DIM_MARKET_SK
+        description: Market Surrogate Key to join to the Market Dimension.
+      - name: DIM_JOBCODE_SK
+        description: Job Code Surrogate Key to join to the Job Code Dimension.
+      - name: DAY_NIGHT
+        description: Boolean Flag for Day or Night shift for the event.
+      - name: MEASURED_DIRECT
+        description: Measured Direct Hours for the respective Job Code, Market, Week, Work Category.
+      - name: MEASURED_INDIRECT
+        description: Measured Indirect Hours for the respective Job Code, Market, Week, Work Category.
+      - name: UNMEASURED_DIRECT
+        description: Unmeasured Direct Hours for the respective Job Code, Market, Week, Work Category
+      - name: UNMEASURED_INDIRECT
+        description: Unmeasured Indirect Hours for the respective Job Code, Market, Week, Work Category.
+      - name: UNPAID_BREAK
+        description: Unpaid break hours for the respective Job Code, Market, Week, Work Category
+      - name: PAID_BREAK
+        description: Paid break hours for the respective Job Code, Market, Week, Work Category
+      - name: INSERTED_DIRECT
+        description: Inserted direct hours for the respective Job Code, Market, Week, Work Category
+      - name: GOAL_HOURS
+        description: Goal hours for the respective Job Code, Market, Week, Work Category.

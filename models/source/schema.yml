@@ -12,13 +12,15 @@ sources:
         - name: KVI_ADJUSTMENTS
         - name: JOBCODE
         - name: WORKCATEGORY
+        - name: AISLE_AREA
+        - name: WORKAREA 
 
-    - name: GOLD_OMNITRACS
-      description: "DB GOLD and SCHEMA OMNITRACS sources"
+    - name: GOLD_WORKDAY
+      description: "DB GOLD and SCHEMA WORKDAY sources"
       database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
-      schema: OMNITRACS
+      schema: WORKDAY
       tables:
-        - name: DRIVER_LOG_HDR
+        - name: EMPLOYEE
 
     - name: GOLD_XDMADM
       description: "DB GOLD and SCHEMA XDMADM sources"
@@ -27,3 +29,12 @@ sources:
       tables:
         - name: DIV_CORP
         - name: TIME_CORP
+
+      - name: GOLD_KRONOS
+      description: "DB GOLD and SCHEMA KRONOS sources"
+      database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
+      schema: KRONOS
+      tables:
+        - name: WFCTOTAL
+        - name: LABORACCT
+        - name: PAYCODE

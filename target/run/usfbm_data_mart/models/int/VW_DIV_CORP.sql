@@ -1,0 +1,109 @@
+
+  create or replace  view CDW_DEV.SANDBOX_W846026.VW_DIV_CORP
+  
+    
+    
+(
+  
+    
+      WH_CD
+    
+    , 
+  
+    
+      RGN_CD
+    
+    , 
+  
+    
+      DIV_TYP_CD
+    
+    , 
+  
+    
+      ZIP_CD
+    
+    , 
+  
+    
+      DIV_ID
+    
+    , 
+  
+    
+      CONV_TO_DIV_NB
+    
+    , 
+  
+    
+      PRCS_SYS_NM
+    
+    , 
+  
+    
+      DIV_NM
+    
+    , 
+  
+    
+      DIV_NM_CD_NB
+    
+    , 
+  
+    
+      RGN_NM
+    
+    , 
+  
+    
+      AREA_NM
+    
+    , 
+  
+    
+      SC_RGN_NM
+    
+    , 
+  
+    
+      CMPNY_DESC
+    
+    , 
+  
+    
+      INACT_DT
+    
+    , 
+  
+    
+      IS_ACT
+    
+    
+  
+)
+
+   as (
+    
+
+WITH source -- the CTE view name
+	AS(
+        SELECT
+            BRNCH_CD::varchar(16) AS  WH_CD -- A character code to represent Branch.`
+            ,RGN_CD::varchar(16) AS RGN_CD  -- region id
+            ,DIV_TYP_CD::varchar(16) AS DIV_TYP_CD  -- Division Type Code
+            ,ZIP_CD::integer AS ZIP_CD  -- Division zip code
+            ,DIV_NBR::integer AS DIV_ID  -- A 4-digit number given to each Division 
+            ,CONV_TO_DIV_NBR::integer AS CONV_TO_DIV_NB  -- Converted to Division Number
+            ,PRCS_SYS::varchar(8) AS PRCS_SYS_NM  -- Processing System 
+            ,DIV_NM::varchar(64) AS DIV_NM  -- Division Name
+            ,DIV_NM_CD_NBR::varchar(128) AS DIV_NM_CD_NB  --Div Name, Code and Number
+            ,RGN_NM::varchar(64) AS RGN_NM --Name or Description of a Region Code
+            ,AREA_NM::varchar(64) AS AREA_NM  -- Area Name
+            ,SC_RGN_NM::varchar(64) AS SC_RGN_NM  -- Supply Chain Region Name
+            ,CMPNY_DESC::varchar(64) AS CMPNY_DESC  -- Company Description
+            ,INACT_DT::date AS INACT_DT  -- Inactive market
+            ,CASE WHEN INACT_DT IS NULL THEN 1 ELSE 0 END AS IS_ACT
+        FROM GOLD_DEV.XDMADM.DIV_CORP
+    )
+SELECT * FROM source -- from the CTE view build a new reference with this filename
+  );

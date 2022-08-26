@@ -1,0 +1,52 @@
+{{ config(materialized='view') }}
+
+WITH source -- the CTE view name
+	AS(
+     SELECT KVISUMMARYINTID AS KVI_SUMMARY_ID
+          , USR_ID AS EMPLOYEE_ID
+          , WH_ID AS MARKET_ID
+          , JOBCODEINTID AS JOB_CODE_ID
+          , JOBCODEID AS JOB_CODE_NM
+          , SUPERVISOR_ID
+          , WAR_INT_ID AS WORK_AREA_ID
+          , AISLEAREA_INT_ID AS AISLE_AREA_ID
+          , AISLE_AREA_ID AS AISLE_AREA_NM
+          , PLAN_DATE
+          , STARTLOCATIONID AS START_LOC_ID
+          , ENDLOCATIONID AS END_LOC_ID
+          , START_TIME AS START_TMST
+          , STOP_TIME AS END_TMST
+          , ACTUAL_SECONDS AS ACTL_SECS_QTY
+          , GOAL_SECONDS
+          , BREAK_SECONDS
+          , PERFORMANCE AS PERF
+          , EXPECTED_PERF
+          , BLENDED_COST
+          , BASE_PF_D
+          , NUM_SHIP AS TOTAL_CASES
+          , TOTAL_CUBE AS TOTAL_CUBES
+          , TOTAL_WEIGHT
+          , KVI_TMU_03 AS TOTAL_PALLETS
+          , DISCRETE AS DISCRETE_FLG
+          , DIRECT AS DIRECT_FLG
+          , ISMEASURED AS MEASURED_FLG
+          , ORDER_QTY
+          , EXT_KVI_GOAL_SECONDS
+          , EXT_DISCRETE_GOAL_SECONDS
+          , INT_KVI_GOAL_SECONDS
+          , INT_DISCRETE_GOAL_SECONDS
+          , MACH_KVI_GOAL_SECONDS
+          , MACH_DISCRETE_GOAL_SECONDS
+          , EXT_ASSIGNMENTTIME AS EXT_ASSIGNMENT_TIME
+          , EXT_ORDERTIME AS EXT_ORDER_TIME
+          , INT_ASSIGNMENTTIME AS INT_ASSIGNMENT_TIME
+          , INT_ORDERTIME AS INT_ORDER_TIME
+          , MACH_ASSIGNMENTTIME AS MACH_ASSIGNMENT_TIME
+          , MACH_ORDERTIME AS MACH_ORDER_TIME
+          , PICK_ERROR_QTY
+          , PICK_ERROR_COST
+          , SRC_ID
+        FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} 
+    )
+
+SELECT * FROM source -- from the CTE view build a new reference with this filename
