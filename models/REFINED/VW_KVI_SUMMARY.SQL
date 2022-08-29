@@ -21,6 +21,8 @@ WITH source -- the CTE view name
           , BREAK_SECONDS
           , PERFORMANCE AS PERF
           , EXPECTED_PERF
+          , CSTNUM AS CUST_NBR
+          , ROUTE_NUM AS ROUTE_NBR
           , BLENDED_COST
           , BASE_PF_D
           , NUM_SHIP AS TOTAL_CASES
@@ -45,6 +47,7 @@ WITH source -- the CTE view name
           , MACH_ORDERTIME AS MACH_ORDER_TIME
           , PICK_ERROR_QTY
           , PICK_ERROR_COST
+          , ASSIGN_NUM AS ASSIGN_NBR
           , SRC_ID
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} 
     )

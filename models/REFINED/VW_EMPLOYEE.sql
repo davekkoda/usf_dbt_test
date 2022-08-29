@@ -36,4 +36,7 @@ WITH source -- the CTE view name
           , EMP_STATUS
         FROM {{ source('GOLD_WORKDAY', 'EMPLOYEE') }}
     )
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+
+/* Outcome */
+     SELECT *
+       FROM SOURCE

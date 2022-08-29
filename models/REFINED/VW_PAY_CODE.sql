@@ -21,7 +21,7 @@ WITH source -- the CTE view name
                  ELSE 'Other'
             END AS PAY_CODE_CATEGORY
           , TYPE AS PAY_CODE_TYPE
-          , EDIT_EXCUSE_ABSN AS EXCUSED_ABS_FLG
+          , EDIT_EXCUSE_ABSN AS EXCUSED_ABSENCE_FLG
           , WAGEADDITION AS WAGE_ADDITION
           , WAGEMULTIPLY AS WAGE_MULTIPLY
           , UPDATE_DTM AS CDW_UPD_TS

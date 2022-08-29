@@ -8,7 +8,7 @@ WITH source -- the CTE view name
           , WH_ID AS MARKET_ID
           , JOBCODEINTID AS JOB_CODE_ID
           , WCT_INT_ID AS WORK_CATEGORY_ID
-          , ADJ_START_TIME AS ADJ_START_TMST
+          , ADJ_START_TIME AS ADJ_START_TS
           , ADJ_DURATION
           , ADJ_BLENDED_COST
           , ROUTE_NUM
@@ -18,4 +18,6 @@ WITH source -- the CTE view name
        FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} 
     )
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

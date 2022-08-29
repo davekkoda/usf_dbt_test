@@ -6,7 +6,7 @@ WITH source
           , aa.AISLE_AREA_ID AS AISLE_AREA_NM
           , aa.DESCRIPTION AS AISLE_AREA_DSC
           , wa.WAR_NAME AS WORK_AREA_NM
-          , aa.WH_ID
+          , aa.WH_ID AS MARKET_ID
           , aa.PICK_TYPE
           , aa.PICK_OFFSET
           , aa.SRC_ID
