@@ -75,5 +75,6 @@ WITH source -- the CTE view name
         {% endif %}
     )
 
-    SELECT * 
-        FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

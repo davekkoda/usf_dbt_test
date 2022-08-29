@@ -12,12 +12,15 @@ WITH source -- the CTE view name
 	AS(
         SELECT 
             {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
+            , jc.JOB_CODE_ID
+            , jc.JOB_CODE_NM
+            , jc.JOB_CODE_DSC
             , jc.MARKET_ID
             , jc.CUSTOM_WORK_CATEGORY
             , jc.WORK_CATEGORY
+            , wa.WORK_AREA_NM
             , jc.AISLE_AREA_NM
             , wa.AISLE_AREA_DSC
-            , wa.WORK_AREA_NM
             , jc.DIRECT_FLG
             , jc.BREAK_FLG
             , jc.MEASURED_FLG
@@ -40,7 +43,8 @@ WITH source -- the CTE view name
             AND jc.AISLE_AREA_NM = wa.AISLE_AREA_NM 
             AND jc.MARKET_ID = wa.MARKET_ID 
             AND jc.SRC_ID = wa.SRC_ID 
-
     )
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

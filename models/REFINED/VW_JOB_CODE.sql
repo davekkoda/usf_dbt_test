@@ -4,12 +4,12 @@ WITH source -- the CTE view name
 	AS(
 
 WITH
-     cleaned_job_code AS (SELECT row_number() OVER (partition by j.jobcodeintid, j.jobcodeid, j.description
-                                                   ORDER BY j.src_id) row_count,
-     j.jobcodeintid AS job_code_id ,
-     j.jobcodeid AS job_code_nm ,
-     j.wh_id
-     , CASE WHEN JOB_CODE_NM IN('LOADSTARTF', 'LOADSTARTD', 'LOADSTOPF', 'LOADSTOPD', 'LOADD', 'LOADR', 'LOADF', 'LOADI', 'ILOADWAIT', 'ILOADTRL', 'ILOADCLEAN', 'LOAD', 'LOADAK', 'LOADCLR', 'LOADDRY', 'LOADWC', 'LOADFRZ')
+     CLEANED_JOB_CODE AS (SELECT ROW_NUMBER() OVER (partition by j.JOBCODEINTID, j.JOBCODEID, j.DESCRIPTION
+                                                   ORDER BY j.SRC_ID) ROW_COUNT,
+     j.JOBCODEINTID AS JOB_CODE_ID ,
+     j.JOBCODEID AS JOB_CODE_NM ,
+     j.WH_ID AS MARKET_ID ,
+     CASE WHEN JOB_CODE_NM IN('LOADSTARTF', 'LOADSTARTD', 'LOADSTOPF', 'LOADSTOPD', 'LOADD', 'LOADR', 'LOADF', 'LOADI', 'ILOADWAIT', 'ILOADTRL', 'ILOADCLEAN', 'LOAD', 'LOADAK', 'LOADCLR', 'LOADDRY', 'LOADWC', 'LOADFRZ')
             THEN 'Loading'
             WHEN JOB_CODE_NM IN('HAUL', 'HAULCLR', 'HAULDRY', 'HAULFRZ')
             THEN 'Hauling'
@@ -34,31 +34,32 @@ WITH
             WHEN JOB_CODE_NM IN('zFRUN') THEN 'Runner'
             ELSE 'Indirect'
        END AS CUSTOM_WORK_CATEGORY ,
-     wc.wct_name AS work_category ,
-     j.description AS job_code_dsc ,
-     j.aislearea_int_id AS aisle_area_id ,
-     j.aisle_area_id AS aisle_area_nm ,
-     j.direct AS direct_flg ,
-     j.isbreak AS break_flg ,
-     j.ismeasured AS measured_flg ,
-     j.ispaid AS paid_flg ,
-     j.req_approval AS req_approval_flg ,
-     j.mask_level AS mask_level ,
-     j.ext_assignmenttime AS ext_assignment_time ,
-     j.int_assignmenttime AS int_assignment_time ,
-     j.ext_ordertime AS ext_order_time ,
-     j.int_ordertime AS int_order_time ,
-     j.src_id
-       FROM {{ source('GOLD_RED_PRAIRIE', 'JOBCODE') }} j
+     wc.WCT_NAME AS WORK_CATEGORY ,
+     j.DESCRIPTION AS JOB_CODE_DSC ,
+     j.AISLEAREA_INT_ID AS AISLE_AREA_ID ,
+     j.AISLE_AREA_ID AS AISLE_AREA_NM ,
+     j.DIRECT AS DIRECT_FLG ,
+     j.ISBREAK AS BREAK_FLG ,
+     j.ISMEASURED AS MEASURED_FLG ,
+     j.ISPAID AS PAID_FLG ,
+     j.REQ_APPROVAL AS REQ_APPROVAL_FLG ,
+     j.MASK_LEVEL AS MASK_LEVEL ,
+     j.EXT_ASSIGNMENTTIME AS EXT_ASSIGNMENT_TIME ,
+     j.INT_ASSIGNMENTTIME AS INT_ASSIGNMENT_TIME ,
+     j.EXT_ORDERTIME AS EXT_ORDER_TIME ,
+     j.INT_ORDERTIME AS INT_ORDER_TIME ,
+     j.SRC_ID
+            FROM {{ source('GOLD_RED_PRAIRIE', 'JOBCODE') }} j
        LEFT JOIN {{ source('GOLD_RED_PRAIRIE', 'WORKCATEGORY') }} wc
-              ON j.wct_int_id = wc.wct_int_id
-            AND j.wh_id = wc.wh_id
-            AND j.src_id = wc.src_id)
+              ON j.WCT_INT_ID = wc.WCT_INT_ID
+             AND j.WH_ID = wc.WH_ID
+             AND j.SRC_ID = wc.SRC_ID)
 /* Outcome */
-     SELECT  *
+     SELECT *
        FROM cleaned_job_code
       WHERE 1=1
-        AND ROW_COUNT = 1
-    )
+        AND ROW_COUNT = 1)
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE
