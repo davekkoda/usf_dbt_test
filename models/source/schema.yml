@@ -1,40 +1,40 @@
-
 version: 2
 
 sources:
+  - name: GOLD_RED_PRAIRIE
+    description: "DB GOLD and SCHEMA RED_PRAIRIE sources"
+    database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
+    schema: RED_PRAIRIE
+    tables:
+      - name: KVI_SUMMARY
+      - name: KVI_ADJUSTMENTS
+      - name: LES_USR_ATH
+      - name: JOBCODE
+      - name: WORKCATEGORY
+      - name: AISLE_AREA
+      - name: WORKAREA
 
-    - name: GOLD_RED_PRAIRIE
-      description: "DB GOLD and SCHEMA RED_PRAIRIE sources"
-      database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
-      schema: RED_PRAIRIE
-      tables:
-        - name: KVI_SUMMARY
-        - name: KVI_ADJUSTMENTS
-        - name: JOBCODE
-        - name: WORKCATEGORY
-        - name: AISLE_AREA
-        - name: WORKAREA 
+  - name: GOLD_WORKDAY
+    description: "DB GOLD and SCHEMA WORKDAY sources"
+    database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
+    schema: WORKDAY
+    tables:
+      - name: EMPLOYEE
 
-    - name: GOLD_WORKDAY
-      description: "DB GOLD and SCHEMA WORKDAY sources"
-      database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
-      schema: WORKDAY
-      tables:
-        - name: EMPLOYEE
+  - name: GOLD_XDMADM
+    description: "DB GOLD and SCHEMA XDMADM sources"
+    database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
+    schema: XDMADM
+    tables:
+      - name: DIV_CORP
+      - name: TIME_CORP
 
-    - name: GOLD_XDMADM
-      description: "DB GOLD and SCHEMA XDMADM sources"
-      database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
-      schema: XDMADM
-      tables:
-        - name: DIV_CORP
-        - name: TIME_CORP
-
-      - name: GOLD_KRONOS
-      description: "DB GOLD and SCHEMA KRONOS sources"
-      database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
-      schema: KRONOS
-      tables:
-        - name: WFCTOTAL
-        - name: LABORACCT
-        - name: PAYCODE
+  - name: GOLD_KRONOS
+    description: "DB GOLD and SCHEMA KRONOS sources"
+    database: "GOLD{{ '_DEV' if target.name == 'dev' else '' }}{{ '_QA' if target.name == 'qa' else '' }}"
+    schema: KRONOS
+    tables:
+      - name: PERSON
+      - name: WFCTOTAL
+      - name: LABORACCT
+      - name: PAYCODE

@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', unique_key='DIM_PAY_CODE_SK') }}
+{{ config(materialized='incremental') }}
 
 {% if target.name == 'dev' %}
 {%  set env_user = "SNOW_USFBM_USERNAME_DEV" %}
@@ -8,26 +8,26 @@
 {% set env_user = "SNOW_USFBM_USERNAME_PROD" %}
 {% endif %}
 
-WITH source -- the CTE view name
-	AS(
+WITH source 
+     AS (
      SELECT 
+          {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
+          , TO_NUMBER(TO_CHAR(TO_DATE(wfc.DATE_ID),'YYYYMMDD'))AS DIM_DATE_SK
           {{ surrogate_key_int(['PAY_CODE_ID']) }} AS DIM_PAY_CODE_SK 
-          , pc.PAY_CODE_ID
-          , pc.PAY_CODE_NM
-          , pc.PAY_CODE_CATEGORY
-          , pc.PAY_CODE_TYPE
-          , pc.EXCUSED_ABSENCE_FLG
-          , pc.WAGE_ADDITION
-          , pc.WAGE_MULTIPLY
-          , pc.CDW_UPD_TS
-          , pc.CDW_UPD_USR_ID
+          {{ surrogate_key_int(['LABOR_ACCT_ID']) }} AS DIM_LABOR_ACCT_SK
+          , START_TMST
+          , END_TMST
+          , DURATION_SECS_QTY
+          , TIME_ZONE_ID
+          , WAGE_AMT
+          , MONEY_AMT
           , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
           , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VW_PAY_CODE') }} pc
-   ORDER BY PAY_CODE_ID
-    )
-
+       FROM {{ ref('VW_WFC_TOTAL') }} 
+     )
+                     
 /* Outcome */
      SELECT *
        FROM SOURCE
+

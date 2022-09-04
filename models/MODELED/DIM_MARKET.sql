@@ -36,7 +36,7 @@ WITH source -- the CTE view name
           , mkt.CITY
           , mkt.STATE
           , mkt.ZIP_CODE
-          , mkt.PHN_NBR
+          , mkt.PHONE_NB
           , mkt.DIV_SIZE_CD
           , mkt.DIV_TYPE_CD
           , mkt.DIV_TYPE_DESC

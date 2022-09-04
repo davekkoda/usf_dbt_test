@@ -12,7 +12,7 @@ WITH source -- the CTE view name
           , ADJ_DURATION
           , ADJ_BLENDED_COST
           , ROUTE_NUM
-          , ASSIGN_NUM
+          , ASSIGN_NUM AS ASSIGN_NB
           , APPROVED_BY
           , SRC_ID
        FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_ADJUSTMENTS') }} 

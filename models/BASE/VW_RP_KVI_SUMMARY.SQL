@@ -14,21 +14,25 @@ WITH source -- the CTE view name
           , PLAN_DATE
           , STARTLOCATIONID AS START_LOC_ID
           , ENDLOCATIONID AS END_LOC_ID
-          , START_TIME AS START_TMST
-          , STOP_TIME AS END_TMST
+          , START_TIME AS START_TS
+          , STOP_TIME AS END_TS
           , ACTUAL_SECONDS AS ACTL_SECS_QTY
           , GOAL_SECONDS
           , BREAK_SECONDS
-          , PERFORMANCE AS PERF
+          , PERFORMANCE
           , EXPECTED_PERF
-          , CSTNUM AS CUST_NBR
-          , ROUTE_NUM AS ROUTE_NBR
+          , CSTNUM AS CUST_NB
+          , ROUTE_NUM AS ROUTE_NB
           , BLENDED_COST
           , BASE_PF_D
+          , ASSIGN_NUM AS ASSIGN_NB
+          , KVI_TMU_05 AS KVI_CASES
+          , KVI_TMU_03 AS KVI_PALLETS 
+          , KVI_TMU_06 AS VOLUME
+          , KVI_TMU_04 AS PRODUCTS
           , NUM_SHIP AS TOTAL_CASES
           , TOTAL_CUBE AS TOTAL_CUBES
           , TOTAL_WEIGHT
-          , KVI_TMU_03 AS TOTAL_PALLETS
           , DISCRETE AS DISCRETE_FLG
           , DIRECT AS DIRECT_FLG
           , ISMEASURED AS MEASURED_FLG
@@ -47,9 +51,10 @@ WITH source -- the CTE view name
           , MACH_ORDERTIME AS MACH_ORDER_TIME
           , PICK_ERROR_QTY
           , PICK_ERROR_COST
-          , ASSIGN_NUM AS ASSIGN_NBR
           , SRC_ID
         FROM {{ source('GOLD_RED_PRAIRIE', 'KVI_SUMMARY') }} 
     )
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

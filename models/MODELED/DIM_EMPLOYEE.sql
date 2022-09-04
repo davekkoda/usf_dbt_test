@@ -12,42 +12,44 @@ WITH source -- the CTE view name
 	AS(
      SELECT
           {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
-          , EMP_NBR AS WORKDAY_ID
-          , NETWORK_ID
-          , BRNCH_CD AS WAREHOUSE_ID
-          , DEPT_ID
-          , DEPT_NM
-          , FIRST_NAME AS FIRST_NM
-          , LAST_NAME AS LAST_NM
-          , MIDDLE_INITIAL AS MIDDLE_INTL
-          , EMP_EMAIL
-          , EMP_WORK_PHONE
-          , LOCATION_ID
-          , BU_NAME
-          , LOCATION_NAME
-          , EMP_TYPE
-          , PAY_TYPE
-          , TIME_TYPE
-          , POSITION_ID
-          , MANAGER_ID
-          , JOB_TITLE
-          , JOB_FAM_DESC AS JOB_NM
-          , JOB_FNCTN_LNG_DESC AS JOB_DESC
-          , WORK_COMP_CD
-          , WORK_COMP_DESC
-          , HIRE_DT
-          , SRVC_DT
-          , TRMNTN_DT
-          , EEO_JOB_GRP AS JOB_GROUP_ID
-          , EEO_JOB_GRP_DESC AS JOB_GROUP_DESC
-          , COMP_GRADE
-          , PAY_GROUP AS PAY_GROUP_CD
-          , GL_EXPENSE
-          , EMP_STATUS
+          , emp.EMP_NB
+          , emp.NETWORK_ID
+          , emp.MARKET_ID
+          , emp.DEPT_ID
+          , emp.DEPT_NM
+          , emp.FIRST_NM
+          , emp.LAST_NM
+          , emp.MIDDLE_INTL
+          , emp.EMP_EMAIL
+          , emp.EMP_WORK_PHONE
+          , emp.LOCATION_ID
+          , emp.BU_NM
+          , emp.LOCATION_NM
+          , emp.EMP_TYPE
+          , emp.PAY_TYPE
+          , emp.TIME_TYPE
+          , emp.POSITION_ID
+          , emp.MANAGER_ID
+          , emp.JOB_TITLE
+          , emp.JOB_NM
+          , emp.JOB_DESC
+          , emp.WORK_COMP_CD
+          , emp.WORK_COMP_DESC
+          , emp.HIRE_DT
+          , emp.SRVC_DT
+          , emp.TRMNTN_DT
+          , emp.JOB_GROUP_ID
+          , emp.JOB_GROUP_DESC
+          , emp.COMP_GRADE
+          , emp.PAY_GROUP_CD
+          , emp.GL_EXPENSE
+          , emp.EMP_STATUS
           , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
           , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VW_EMPLOYEE') }}
+       FROM {{ ref('VW_EMPLOYEE') }} as emp
     )
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

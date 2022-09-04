@@ -17,4 +17,6 @@ WITH source -- the CTE view name
         FROM {{ source('GOLD_KRONOS', 'WFCTOTAL') }}
     )
 
-SELECT * FROM source -- from the CTE view build a new reference with this filename
+/* Outcome */
+     SELECT *
+       FROM SOURCE

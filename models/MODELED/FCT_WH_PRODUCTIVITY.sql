@@ -14,59 +14,59 @@ WITH source -- the CTE view name
           , {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
           , {{ surrogate_key_int(['MARKET_ID']) }} AS DIM_MARKET_SK
           , {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
-          , TO_NUMBER(TO_CHAR(TO_DATE(kvi.PLAN_DATE), 'YYYYMMDD')) AS DIM_DATE_SK
+          , TO_NUMBER(TO_CHAR(TO_DATE(PLAN_DATE), 'YYYYMMDD')) AS DIM_DATE_SK
           , {{ surrogate_key_int(['SUPERVISOR_ID']) }} AS SUPERVISOR_SK
-          , kvi.STARTLOCATIONID AS START_LOC_ID
-          , kvi.ENDLOCATIONID AS END_LOC_ID
-          , kvi.START_TIME AS START_TS
-          , kvi_adj.ADJ_START_TS
-          , kvi.STOP_TIME AS END_TS
-          , kvi.ACTUAL_SECONDS
-          , CASE WHEN kvi_adj.ADJ_START_TS IS NULL THEN 0
-                 ELSE kvi_adj.ADJ_DURATION
+          , START_LOC_ID
+          , END_LOC_ID
+          , START_TS
+          , adj.ADJ_START_TS
+          , END_TS
+          , ACTUAL_SECONDS
+          , CASE WHEN adj.ADJ_START_TS IS NULL THEN 0
+                 ELSE adj.ADJ_DURATION
             END AS ADJ_SECONDS
-          , kvi.GOAL_SECONDS
-          , kvi.BREAK_SECONDS
-          , kvi.PERFORMANCE AS PERF
-          , kvi.EXPECTED_PERF
-          , kvi.CUST_NBR
-          , kvi.ROUTE_NBR
-          , kvi.BLENDED_COST
-          , CASE WHEN kvi_adj.ADJ_START_TS IS NULL THEN 0
-                 ELSE kvi_adj.ADJ_BLENDED_COST
+          , GOAL_SECONDS
+          , BREAK_SECONDS
+          , PERFORMANCE
+          , EXPECTED_PERF
+          , CUST_NB
+          , ROUTE_NB
+          , BLENDED_COST
+          , CASE WHEN adj.ADJ_START_TS IS NULL THEN 0
+                 ELSE adj.ADJ_BLENDED_COST
             END AS ADJ_BLENDED_COST
-          , kvi.BASE_PF_D
-          , kvi.TOTAL_CASES
-          , kvi.TOTAL_CUBES
-          , kvi.TOTAL_WEIGHT
-          , kvi.TOTAL_PALLETS
-          , kvi.DISCRETE_FLG
-          , kvi.DIRECT_FLG
-          , kvi.MEASURED_FLG
-          , kvi.ORDER_QTY
-          , kvi.EXT_KVI_GOAL_SECONDS
-          , kvi.EXT_DISCRETE_GOAL_SECONDS
-          , kvi.INT_KVI_GOAL_SECONDS
-          , kvi.INT_DISCRETE_GOAL_SECONDS
-          , kvi.MACH_KVI_GOAL_SECONDS
-          , kvi.MACH_DISCRETE_GOAL_SECONDS
-          , kvi.EXT_ASSIGNMENT_SECONDS
-          , kvi.EXT_ORDER_SECONDS
-          , kvi.INT_ASSIGNMENT_SECONDS
-          , kvi.INT_ORDER_SECONDS
-          , kvi.MACH_ASSIGNMENT_SECONDS
-          , kvi.MACH_ORDER_SECONDS
-          , kvi.PICK_ERROR_QTY
-          , kvi.PICK_ERROR_COST
-          , kvi.SRC_ID
+          , BASE_PF_D
+          , ASSIGN_NB
+          , KVI_CASES
+          , KVI_PALLETS
+          , VOLUME
+          , PRODUCTS
+          , TOTAL_CASES
+          , TOTAL_CUBES
+          , TOTAL_WEIGHT
+          , DISCRETE_FLG
+          , DIRECT_FLG
+          , MEASURED_FLG
+          , ORDER_QTY
+          , EXT_KVI_GOAL_SECONDS
+          , EXT_DISCRETE_GOAL_SECONDS
+          , INT_KVI_GOAL_SECONDS
+          , INT_DISCRETE_GOAL_SECONDS
+          , MACH_KVI_GOAL_SECONDS
+          , MACH_DISCRETE_GOAL_SECONDS
+          , EXT_ASSIGNMENT_SECONDS
+          , EXT_ORDER_SECONDS
+          , INT_ASSIGNMENT_SECONDS
+          , INT_ORDER_SECONDS
+          , MACH_ASSIGNMENT_SECONDS
+          , MACH_ORDER_SECONDS
+          , PICK_ERROR_QTY
+          , PICK_ERROR_COST
+          , SRC_ID
+          , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
           , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VW_KVI_SUMMARY') }} AS kvi
-  LEFT JOIN {{ ref('VW_KVI_ADJUSTMENTS') }} AS kvi_adj
-         ON kvi.KVI_SUMMARY_ID = kvi_adj.KVI_SUMMARY_ID
-        AND kvi.EMPLOYEE_ID = kvi_adj.EMPLOYEE_ID
-        AND kvi.JOB_CODE_ID = kvi_adj.JOB_CODE_ID
-        AND kvi.ASSIGN_NBR = kvi_adj.ASSIGN_NBR
+       FROM {{ ref('VW_WH_PRODUCTIVITY') }} AS kvi
 
         {% if is_incremental() %}
 

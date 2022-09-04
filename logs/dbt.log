@@ -5076,3 +5076,227 @@ invalid identifier 'DBT_INTERNAL_SOURCE.DIM_DRIVER_PK'
 15:43:35.779229 [info ] [MainThread]: 
 15:43:35.779704 [info ] [MainThread]: Press Ctrl+C to exit.
 15:20:09.939991 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 15:55:28.157024 | a7da70c5-f4ec-4fb8-978c-47436044cb47 ==============================
+15:55:28.157061 [info ] [MainThread]: Running with dbt=1.1.1
+15:55:28.157637 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'port': 8001, 'open_browser': True, 'which': 'serve', 'indirect_selection': 'eager'}
+15:55:28.157869 [debug] [MainThread]: Tracking: tracking
+15:55:28.158243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107e9b550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107e9b5b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107e9b640>]}
+15:55:28.533451 [info ] [MainThread]: Serving docs at 0.0.0.0:8001
+15:55:28.534564 [info ] [MainThread]: To access from your browser, navigate to:  http://localhost:8001
+15:55:28.535065 [info ] [MainThread]: 
+15:55:28.535566 [info ] [MainThread]: 
+15:55:28.536024 [info ] [MainThread]: Press Ctrl+C to exit.
+15:55:51.864019 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 15:57:34.593136 | 892e5d8f-e71c-43c4-a409-4d890e88ca81 ==============================
+15:57:34.593159 [info ] [MainThread]: Running with dbt=1.1.1
+15:57:34.593618 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'compile': True, 'which': 'generate', 'rpc_method': 'docs.generate', 'indirect_selection': 'eager'}
+15:57:34.593759 [debug] [MainThread]: Tracking: tracking
+15:57:34.594044 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054cf1c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054cf490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054cf6a0>]}
+15:57:34.715409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1054c3b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10563ba90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10563b7f0>]}
+15:57:34.848148 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 16:07:14.629226 | ef3ad575-4512-45d0-9f2f-b1647e919e08 ==============================
+16:07:14.629248 [info ] [MainThread]: Running with dbt=1.1.1
+16:07:14.629768 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'compile': True, 'which': 'generate', 'rpc_method': 'docs.generate', 'indirect_selection': 'eager'}
+16:07:14.629886 [debug] [MainThread]: Tracking: tracking
+16:07:14.630137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10728f520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10728f5e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10728f610>]}
+16:07:14.671524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107597670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073d6ca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073d6a00>]}
+16:07:14.915033 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 16:08:59.403997 | 69768e5a-f279-4607-84a1-6552986d87e0 ==============================
+16:08:59.404029 [info ] [MainThread]: Running with dbt=1.1.1
+16:08:59.404492 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'compile': True, 'which': 'generate', 'rpc_method': 'docs.generate', 'indirect_selection': 'eager'}
+16:08:59.404623 [debug] [MainThread]: Tracking: tracking
+16:08:59.404896 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f8fc70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f8f670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110f8fe20>]}
+16:08:59.440998 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1112bb4c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111089af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1110897f0>]}
+16:08:59.685565 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 16:09:32.323140 | a4da9db8-52ba-4f76-bc74-3b03d0f67991 ==============================
+16:09:32.323175 [info ] [MainThread]: Running with dbt=1.1.1
+16:09:32.323857 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'compile': True, 'which': 'generate', 'rpc_method': 'docs.generate', 'indirect_selection': 'eager'}
+16:09:32.324009 [debug] [MainThread]: Tracking: tracking
+16:09:32.324295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c9f1c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c9f490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c9f6a0>]}
+16:09:32.752035 [debug] [MainThread]: Partial parsing enabled: 25 files deleted, 22 files added, 1 files changed.
+16:09:32.752601 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/schema.yml
+16:09:32.752741 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_KVI_ADJUSTMENTS.SQL
+16:09:32.752850 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/FCT_WH_PRODUCTIVITY.sql
+16:09:32.752950 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_LABOR_ACCT.sql
+16:09:32.753129 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/schema.yml
+16:09:32.753228 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_KVI_SUMMARY.SQL
+16:09:32.753324 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_LABOR_ACCT.sql
+16:09:32.753417 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:09:32.753511 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:09:32.753606 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_JOB_CODE.sql
+16:09:32.753704 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:09:32.753799 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_WORK_AREA.sql
+16:09:32.753891 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_JOB_CODE.sql
+16:09:32.753982 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_EMPLOYEE.sql
+16:09:32.754074 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_TIME_CORP.sql
+16:09:32.754165 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_PAY_CODE.sql
+16:09:32.754258 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_PAY_CODE.sql
+16:09:32.754351 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_EMPLOYEE.sql
+16:09:32.754446 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_MARKET.sql
+16:09:32.754540 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_DIV_CORP.sql
+16:09:32.754632 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_WFC_TOTAL.sql
+16:09:32.754752 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_DATE.sql
+16:09:32.754917 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.KVI_SUMMARY
+16:09:32.754993 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.KVI_ADJUSTMENTS
+16:09:32.755064 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.JOBCODE
+16:09:32.755140 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.WORKCATEGORY
+16:09:32.755217 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_OMNITRACS.DRIVER_LOG_HDR
+16:09:32.755301 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+16:09:32.755441 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_KVI_SUMMARY.SQL
+16:09:32.755525 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_MARKET not found in child_map
+16:09:32.755599 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_MARKET.sql
+16:09:32.755674 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_JOBCODE not found in child_map
+16:09:32.755750 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_JOBCODE.sql
+16:09:32.755859 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_DATE.sql
+16:09:32.755936 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_JOBCODE.sql
+16:09:32.756016 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_KVI_ADJUSTMENTS.SQL
+16:09:32.756089 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DATE not found in child_map
+16:09:32.756158 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_DATE.sql
+16:09:32.756229 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DRIVER not found in child_map
+16:09:32.756302 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_DRIVER.sql
+16:09:32.756375 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_WORK_CATEGORY not found in child_map
+16:09:32.756443 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_WORK_CATEGORY.SQL
+16:09:32.756512 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_TIME_CORP.sql
+16:09:32.756582 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT_ROLLING_13M.sql
+16:09:32.756651 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_DIV_CORP.sql
+16:09:32.756719 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_JOBCODE.sql
+16:09:32.756787 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_DRIVER.sql
+16:09:32.756855 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_DRIVER_LOG_HDR.sql
+16:09:32.756923 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_WORKCATEGORY.sql
+16:09:32.756993 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT.sql
+16:09:32.757061 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_MARKET.sql
+16:09:32.757132 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_FCT_ASSIGMENT_WK_SMRY not found in child_map
+16:09:32.757198 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_FCT_ASSIGMENT_WK_SMRY.SQL
+16:09:32.757267 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_WORK_CATEGORY.sql
+16:09:32.757337 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DRIVER_ROLLING_13M not found in child_map
+16:09:32.757403 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_DIM_DRIVER_ROLLING_13M.sql
+16:09:32.757471 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT_WK_SMRY.sql
+16:09:32.757541 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_FCT_ASSIGMENT not found in child_map
+16:09:32.757606 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_FCT_ASSIGMENT.SQL
+16:09:32.769769 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_KVI_ADJUSTMENTS.SQL
+16:09:32.780819 [debug] [MainThread]: 1603: static parser failed on MODELED/FCT_WH_PRODUCTIVITY.sql
+16:09:32.795573 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/FCT_WH_PRODUCTIVITY.sql
+16:09:32.796315 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_LABOR_ACCT.sql
+16:09:32.797662 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_KVI_SUMMARY.SQL
+16:09:32.798666 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_LABOR_ACCT.sql
+16:09:32.803833 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_LABOR_ACCT.sql
+16:09:32.804618 [debug] [MainThread]: 1603: static parser failed on VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:09:32.809466 [debug] [MainThread]: 1602: parser fallback to jinja rendering on VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:09:32.810088 [debug] [MainThread]: 1603: static parser failed on VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:09:32.814254 [debug] [MainThread]: 1602: parser fallback to jinja rendering on VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:09:32.815027 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_JOB_CODE.sql
+16:09:32.819667 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_JOB_CODE.sql
+16:09:32.820287 [debug] [MainThread]: 1603: static parser failed on MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:09:32.825169 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:09:32.825895 [debug] [MainThread]: 1603: static parser failed on REFINED/VW_WORK_AREA.sql
+16:09:32.830562 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106ff6700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070e4160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1070e41f0>]}
+16:09:33.059302 [warn ] [MainThread]: Error sending message, disabling tracking
+
+
+============================== 2022-08-30 16:10:23.452553 | 19b61ed8-3638-49b6-a9f1-df07497c24a5 ==============================
+16:10:23.452573 [info ] [MainThread]: Running with dbt=1.1.1
+16:10:23.453052 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/david/Projects/USF/usf_productivity_dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'compile': True, 'which': 'generate', 'rpc_method': 'docs.generate', 'indirect_selection': 'eager'}
+16:10:23.453176 [debug] [MainThread]: Tracking: tracking
+16:10:23.453435 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1087cce50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1087cc760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1087cc3a0>]}
+16:10:23.535666 [debug] [MainThread]: Partial parsing enabled: 25 files deleted, 22 files added, 1 files changed.
+16:10:23.535963 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_PAY_CODE.sql
+16:10:23.536079 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_WORK_AREA.sql
+16:10:23.536178 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_KVI_ADJUSTMENTS.SQL
+16:10:23.536501 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/schema.yml
+16:10:23.536601 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:10:23.536702 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/FCT_WH_PRODUCTIVITY.sql
+16:10:23.536800 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_KVI_SUMMARY.SQL
+16:10:23.536895 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:10:23.536991 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:10:23.537088 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_DATE.sql
+16:10:23.537185 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_LABOR_ACCT.sql
+16:10:23.537275 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_DIV_CORP.sql
+16:10:23.537362 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_TIME_CORP.sql
+16:10:23.537449 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_EMPLOYEE.sql
+16:10:23.537535 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_MARKET.sql
+16:10:23.537621 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_PAY_CODE.sql
+16:10:23.537709 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_WFC_TOTAL.sql
+16:10:23.537875 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/VIRTUAL/schema.yml
+16:10:23.537966 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_LABOR_ACCT.sql
+16:10:23.538058 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_JOB_CODE.sql
+16:10:23.538146 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/REFINED/VW_JOB_CODE.sql
+16:10:23.538255 [debug] [MainThread]: Partial parsing: added file: usfbm_data_mart://models/MODELED/DIM_EMPLOYEE.sql
+16:10:23.538425 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.KVI_SUMMARY
+16:10:23.538501 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.KVI_ADJUSTMENTS
+16:10:23.538569 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.JOBCODE
+16:10:23.538639 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_RED_PRAIRIE.WORKCATEGORY
+16:10:23.538712 [debug] [MainThread]: Partial parsing: deleted source source.usfbm_data_mart.GOLD_OMNITRACS.DRIVER_LOG_HDR
+16:10:23.538788 [debug] [MainThread]: Partial parsing: update schema file: usfbm_data_mart://models/source/schema.yml
+16:10:23.538932 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_DRIVER.sql
+16:10:23.539009 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_FCT_ASSIGMENT_WK_SMRY not found in child_map
+16:10:23.539076 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_FCT_ASSIGMENT_WK_SMRY.SQL
+16:10:23.539142 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT_WK_SMRY.sql
+16:10:23.539210 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_WORK_CATEGORY not found in child_map
+16:10:23.539273 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_WORK_CATEGORY.SQL
+16:10:23.539339 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT_ROLLING_13M.sql
+16:10:23.539405 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DRIVER_ROLLING_13M not found in child_map
+16:10:23.539469 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_DIM_DRIVER_ROLLING_13M.sql
+16:10:23.539535 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_DRIVER_LOG_HDR.sql
+16:10:23.539600 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_TIME_CORP.sql
+16:10:23.539666 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_JOBCODE.sql
+16:10:23.539742 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_WORKCATEGORY.sql
+16:10:23.539810 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_JOBCODE not found in child_map
+16:10:23.539878 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_JOBCODE.sql
+16:10:23.539988 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_DATE.sql
+16:10:23.540063 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_MARKET.sql
+16:10:23.540135 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_KVI_SUMMARY.SQL
+16:10:23.540207 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_MARKET not found in child_map
+16:10:23.540273 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_MARKET.sql
+16:10:23.540340 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_KVI_ADJUSTMENTS.SQL
+16:10:23.540407 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_FCT_ASSIGMENT not found in child_map
+16:10:23.540470 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/facts/VW_FCT_ASSIGMENT.SQL
+16:10:23.540537 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/facts/FCT_ASSIGMENT.sql
+16:10:23.540602 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_WORK_CATEGORY.sql
+16:10:23.540667 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/int/VW_DIV_CORP.sql
+16:10:23.540734 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DATE not found in child_map
+16:10:23.540797 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_DATE.sql
+16:10:23.540864 [debug] [MainThread]: Partial parsing: model.usfbm_data_mart.VW_DIM_DRIVER not found in child_map
+16:10:23.540927 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/views/dimensions/VW_DIM_DRIVER.sql
+16:10:23.540991 [debug] [MainThread]: Partial parsing: deleted file: usfbm_data_mart://models/dimensions/DIM_JOBCODE.sql
+16:10:23.548243 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_PAY_CODE.sql
+16:10:23.553720 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_WORK_AREA.sql
+16:10:23.554916 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_KVI_ADJUSTMENTS.SQL
+16:10:23.555921 [debug] [MainThread]: 1603: static parser failed on VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:10:23.559309 [debug] [MainThread]: 1602: parser fallback to jinja rendering on VIRTUAL/FCT_EMP_SNPSHT_DLY.sql
+16:10:23.559855 [debug] [MainThread]: 1603: static parser failed on MODELED/FCT_WH_PRODUCTIVITY.sql
+16:10:23.572529 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/FCT_WH_PRODUCTIVITY.sql
+16:10:23.573147 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_KVI_SUMMARY.SQL
+16:10:23.574149 [debug] [MainThread]: 1603: static parser failed on VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:10:23.577838 [debug] [MainThread]: 1602: parser fallback to jinja rendering on VIRTUAL/FCT_WH_PRDCTVTY_SNPSHT_DLY.sql
+16:10:23.578356 [debug] [MainThread]: 1603: static parser failed on MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:10:23.582315 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/FCT_TIMESHEET_ACTIVITY.sql
+16:10:23.582822 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_DATE.sql
+16:10:23.585678 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_DATE.sql
+16:10:23.586176 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_LABOR_ACCT.sql
+16:10:23.589410 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_LABOR_ACCT.sql
+16:10:23.590062 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_DIV_CORP.sql
+16:10:23.591029 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_TIME_CORP.sql
+16:10:23.592029 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_EMPLOYEE.sql
+16:10:23.592929 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_MARKET.sql
+16:10:23.596223 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_MARKET.sql
+16:10:23.596729 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_PAY_CODE.sql
+16:10:23.600367 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_PAY_CODE.sql
+16:10:23.600946 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_WFC_TOTAL.sql
+16:10:23.602118 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_LABOR_ACCT.sql
+16:10:23.603056 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_JOB_CODE.sql
+16:10:23.606603 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_JOB_CODE.sql
+16:10:23.607243 [debug] [MainThread]: 1699: static parser successfully parsed REFINED/VW_JOB_CODE.sql
+16:10:23.608241 [debug] [MainThread]: 1603: static parser failed on MODELED/DIM_EMPLOYEE.sql
+16:10:23.611437 [debug] [MainThread]: 1602: parser fallback to jinja rendering on MODELED/DIM_EMPLOYEE.sql
+16:10:23.669991 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b80ac0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108cb7490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b70dc0>]}
+16:10:23.947063 [warn ] [MainThread]: Error sending message, disabling tracking

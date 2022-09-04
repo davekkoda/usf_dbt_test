@@ -2,9 +2,9 @@
 
 WITH source -- the CTE view name
 	AS(
-     SELECT EMP_NBR AS WORKDAY_ID
+     SELECT EMP_NBR AS EMP_NB
           , NETWORK_ID
-          , BRNCH_CD AS WAREHOUSE_ID
+          , BRNCH_CD AS MARKET_ID
           , DEPT_ID
           , DEPT_NM
           , FIRST_NAME AS FIRST_NM
@@ -13,8 +13,8 @@ WITH source -- the CTE view name
           , EMP_EMAIL
           , EMP_WORK_PHONE
           , LOCATION_ID
-          , BU_NAME
-          , LOCATION_NAME
+          , BU_NAME AS BU_NM
+          , LOCATION_NAME AS LOCATION_NM
           , EMP_TYPE
           , PAY_TYPE
           , TIME_TYPE
@@ -34,7 +34,7 @@ WITH source -- the CTE view name
           , PAY_GROUP AS PAY_GROUP_CD
           , GL_EXPENSE
           , EMP_STATUS
-        FROM {{ source('GOLD_WORKDAY', 'EMPLOYEE') }}
+       FROM {{ source('GOLD_WORKDAY', 'EMPLOYEE') }}
     )
 
 /* Outcome */
