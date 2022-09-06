@@ -34,6 +34,7 @@ WITH source -- the CTE view name
           , PAY_GROUP AS PAY_GROUP_CD
           , GL_EXPENSE
           , EMP_STATUS
+          , LDR_TM
        FROM {{ source('GOLD_WORKDAY', 'EMPLOYEE') }}
     )
 

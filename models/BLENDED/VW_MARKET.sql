@@ -2,12 +2,12 @@
 
 WITH source -- the CTE view name
 	AS(
-        SELECT MARKET_SK
+     SELECT MARKET_SK
           , MARKET_ID
           , MARKET_NM
           , MARKET_PRSDNT_NM
           , MARKET_TM_ZN
-          , AREA_CD 
+          , AREA_CD
           , AREA_NM
           , AREA_ID
           , AREA_PRSDNT_NM
@@ -41,12 +41,13 @@ WITH source -- the CTE view name
           , ACQSTN_CMPNY_NM
           , ACQSTN_DT
           , TNDM_NODE
-        FROM {{ ref('VW_XD_DIV_CORP') }}
-        WHERE 1 = 1
-            AND PRCS_SYS = 'ASYS'
-            AND INACT_DT IS NULL
-            AND CONV_TO_DIV_NBR IS NULL
-            AND DIV_TYP_CD IN('USF')
+       FROM {{ ref('VW_XD_DIV_CORP') }}
+      WHERE 1 = 1
+        AND PRCS_SYS = 'ASYS'
+        AND INACT_DT IS NULL
+        AND CONV_TO_DIV_NBR IS NULL
+        AND DIV_TYP_CD IN('USF')
+   ORDER BY MARKET_SK
     )
 
 /* Outcome */

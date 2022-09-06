@@ -2,14 +2,15 @@
 
 WITH source -- the CTE view name
 	AS(
-     SELECT ADR_ID
+     SELECT OIDC_SUBJECT AS EMP_NB
+          , ADR_ID
           , USR_ID
-          , LOGIN_ID OIDC_SUBJECT AS EMP_NB
+          , LOGIN_ID
           , USR_STS AS USR_STATUS
           , ACCT_EXPIR_DAT AS ACCOUNT_EXPIRE_DT
-          , MC_SUPERVISOR_ID
-          , MC_EMP_COST
-          , MC_EMP_HIRE_DATE AS MC_EMP_HIRE_DT
+          , SUPERVISOR_ID
+          , EMP_COST
+          , MC_EMP_HIRE_DATE AS HIRE_DT
           , CLIENT_ID
           , SUPER_USR_FLG
           , INCENTIVE_FLG

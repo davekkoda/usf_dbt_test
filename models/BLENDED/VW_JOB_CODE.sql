@@ -55,8 +55,7 @@ WITH job_group
 
 WITH source -- the CTE view name
 	AS(
-     SELECT
-            {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
+     SELECT {{ surrogate_key_int(['JOB_CODE_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
           , jg.JOB_CODE_ID
           , jg.JOB_CODE_NM
           , jg.JOB_CODE_DSC
@@ -88,6 +87,7 @@ WITH source -- the CTE view name
         AND jg.AISLE_AREA_NM = ag.AISLE_AREA_NM
         AND jg.MARKET_ID = ag.MARKET_ID
         AND jg.SRC_ID = ag.SRC_ID
+   ORDER BY JOB_CODE_ID
     )
 
 /* Outcome */

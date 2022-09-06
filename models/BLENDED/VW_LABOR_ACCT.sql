@@ -10,8 +10,7 @@
 
 WITH source -- the CTE view name
 	AS(
-        SELECT 
-          {{ surrogate_key_int(['LABOR_ACCT_ID']) }} AS DIM_LABOR_ACCT_SK
+     SELECT {{ surrogate_key_int(['LABOR_ACCT_ID']) }} AS DIM_LABOR_ACCT_SK
           , LABOR_ACCT_ID
           , JOB_ID
           , JOB_CD
@@ -25,10 +24,8 @@ WITH source -- the CTE view name
           , DEPT_ID
           , DEPT_CD
           , DEPT_DSC
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VW_LABOR_ACCT') }} la
+       FROM {{ ref('VW_KR_LABOR_ACCT') }}
+   ORDER BY LABOR_ACCT_ID
     )
 
 /* Outcome */

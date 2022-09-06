@@ -59,7 +59,7 @@ WITH kvi_summary
           , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
           , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VW_KVI_SUMMARY') }} 
+       FROM {{ ref('VW_RP_KVI_SUMMARY') }} 
      ),
 
 WITH kvi_adj 
@@ -76,20 +76,16 @@ WITH kvi_adj
           , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
           , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-       FROM {{ ref('VVW_KVI_ADJUSTMENT') }} 
+       FROM {{ ref('VW_RP_KVI_ADJUSTMENT') }} 
     )
 
 WITH source -- the CTE view name
     AS(
-     SELECT ,
-            {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
-          ,
-            {{ surrogate_key_int(['MARKET_ID']) }} AS DIM_MARKET_SK
-          ,
-            {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
+     SELECT {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
+          , {{ surrogate_key_int(['MARKET_ID']) }} AS DIM_MARKET_SK
+          , {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
           , TO_NUMBER(TO_CHAR(TO_DATE(kvi.PLAN_DATE), 'YYYYMMDD')) AS DIM_DATE_SK
-          ,
-            {{ surrogate_key_int(['SUPERVISOR_ID']) }} AS SUPERVISOR_SK
+          , {{ surrogate_key_int(['SUPERVISOR_ID']) }} AS SUPERVISOR_SK
           , kvi.START_LOC_ID
           , kvi.END_LOC_ID
           , kvi.START_TS
@@ -136,10 +132,7 @@ WITH source -- the CTE view name
           , kvi.MACH_ORDER_SECONDS
           , kvi.PICK_ERROR_QTY
           , kvi.PICK_ERROR_COST
-          , kvi.SRC_I
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
+          , kvi.SRC_ID
        FROM kvi_summary AS kvi
   LEFT JOIN kvi_adjusted AS kvi_adj
          ON kvi.KVI_SUMMARY_ID = kvi_adj.KVI_SUMMARY_ID
@@ -147,11 +140,11 @@ WITH source -- the CTE view name
         AND kvi.JOB_CODE_ID = kvi_adj.JOB_CODE_ID
         AND kvi.ASSIGN_NB = kvi_adj.ASSIGN_NB
 
-        {% if is_incremental() %}
+        -- {% if is_incremental() %}
 
-        where SRC_LAST_UPDATE_DT > '{{ get_max_last_upd() }}'
+        -- where SRC_LAST_UPDATE_DT > '{{ get_max_last_upd() }}'
 
-        {% endif %}
+        -- {% endif %}
     )
 
 /* Outcome */
