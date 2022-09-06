@@ -9,7 +9,7 @@
 {% endif %}
 
 WITH source 
-     AS (
+     AS(
      SELECT {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
           , TO_NUMBER(TO_CHAR(TO_DATE(wfc.DATE_ID), 'YYYYMMDD')) AS DIM_DATE_SK
           , {{ surrogate_key_int(['PAY_CODE_ID']) }} AS DIM_PAY_CODE_SK
