@@ -10,11 +10,16 @@
 
 WITH source -- the CTE view name
 	AS(
-     SELECT 
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
-        FROM {{ source('GOLD_KRONOS', 'PERSON') }}
+     SELECT PERSONID AS PERSON_ID
+          , PERSONNUM AS EMP_NB
+          , FIRSTNM AS FIRST_NM
+          , LASTNM AS LAST_NM
+          , MIDDLEINITIALNM AS MIDDLE_INTL
+          , FULLNM AS FULL_NM
+          , COMPANYHIREDT AS HIRE_DT
+          , BIRTHDTM AS BIRTH_DT
+          , FTEPCT
+       FROM {{ source('GOLD_KRONOS', 'PERSON') }}
        )
 
 /* Outcome */
