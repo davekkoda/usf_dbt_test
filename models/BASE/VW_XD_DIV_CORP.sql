@@ -41,6 +41,9 @@ WITH source -- the CTE view name
           , ACQSTN_CMPNY_NM
           , ACQSTN_DT
           , TNDM_NODE
+          , PRCS_SYS 
+          , INACT_DT
+          , CONV_TO_DIV_NBR
        FROM {{ source('GOLD_XDMADM', 'DIV_CORP') }}
     )
 

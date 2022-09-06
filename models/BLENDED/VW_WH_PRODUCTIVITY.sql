@@ -83,7 +83,7 @@ WITH source -- the CTE view name
     AS(
      SELECT {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
           , {{ surrogate_key_int(['MARKET_ID']) }} AS DIM_MARKET_SK
-          , {{ surrogate_key_int(['JOB_CODE_ID', 'JOB_CODE_NM', 'MARKET_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
+          , {{ surrogate_key_int(['JOB_CODE_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
           , TO_NUMBER(TO_CHAR(TO_DATE(kvi.PLAN_DATE), 'YYYYMMDD')) AS DIM_DATE_SK
           , {{ surrogate_key_int(['SUPERVISOR_ID']) }} AS SUPERVISOR_SK
           , kvi.START_LOC_ID
