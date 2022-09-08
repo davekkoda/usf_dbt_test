@@ -3,7 +3,7 @@
 WITH source -- the CTE view name
 	AS(
      SELECT KVISUMMARYINTID AS KVI_SUMMARY_ID
-          , USR_ID AS EMPLOYEE_ID
+          , USR_ID AS USR_ID
           , WH_ID AS MARKET_ID
           , JOBCODEINTID AS JOB_CODE_ID
           , JOBCODEID AS JOB_CODE_NM

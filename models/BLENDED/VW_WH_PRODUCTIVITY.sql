@@ -10,7 +10,7 @@
 
 WITH kvi_summary
      AS(
-     SELECT EMPLOYEE_ID
+     SELECT USR_ID
           , MARKET_ID
           , JOB_CODE_ID
           , JOB_CODE_NM
@@ -18,7 +18,6 @@ WITH kvi_summary
           , START_LOC_ID
           , END_LOC_ID
           , START_TS
-          , adj.ADJ_START_TS
           , END_TS
           , ACTUAL_SECONDS
           , GOAL_SECONDS
@@ -56,32 +55,34 @@ WITH kvi_summary
           , PICK_ERROR_QTY
           , PICK_ERROR_COST
           , SRC_ID
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
        FROM {{ ref('VW_RP_KVI_SUMMARY') }} 
      ),
 
-WITH kvi_adj 
+WITH kvi_adjustments
     AS(
-     SELECT
-          , KVI_SUMMARY_ID
-          , EMPLOYEE_ID
+     SELECT KVI_SUMMARY_ID
+          , USR_ID
           , JOB_CODE_ID
           , ADJ_START_TS
           , ADJ_DURATION
           , ADJ_BLENDED_COST
           , ASSIGN_NB
           , SRC_ID
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
        FROM {{ ref('VW_RP_KVI_ADJUSTMENT') }} 
-    )
+    ),
+  
+WITH employee
+    AS(
+     SELECT EMP_NB
+          , RP_USR_ID
+       FROM {{ ref('VW_RP_LES_USR_ATH') }}
+    ),
 
 WITH source -- the CTE view name
     AS(
-     SELECT {{ surrogate_key_int(['EMPLOYEE_ID']) }} AS DIM_EMPLOYEE_SK
+     SELECT {{ surrogate_key_int(['EMP_NB']) }} AS DIM_EMPLOYEE_SK
+          , emp.EMP_NB
+          , kvi.RP_USR_ID
           , {{ surrogate_key_int(['MARKET_ID']) }} AS DIM_MARKET_SK
           , {{ surrogate_key_int(['JOB_CODE_ID', 'SRC_ID']) }} AS DIM_JOB_CODE_SK
           , TO_NUMBER(TO_CHAR(TO_DATE(kvi.PLAN_DATE), 'YYYYMMDD')) AS DIM_DATE_SK
@@ -134,11 +135,13 @@ WITH source -- the CTE view name
           , kvi.PICK_ERROR_COST
           , kvi.SRC_ID
        FROM kvi_summary AS kvi
-  LEFT JOIN kvi_adjusted AS kvi_adj
+  LEFT JOIN kvi_adjustments AS kvi_adj
          ON kvi.KVI_SUMMARY_ID = kvi_adj.KVI_SUMMARY_ID
         AND kvi.EMPLOYEE_ID = kvi_adj.EMPLOYEE_ID
         AND kvi.JOB_CODE_ID = kvi_adj.JOB_CODE_ID
         AND kvi.ASSIGN_NB = kvi_adj.ASSIGN_NB
+       JOIN employee AS emp
+         ON emp.RP_USR_ID = kvi.USR_ID
 
         -- {% if is_incremental() %}
 

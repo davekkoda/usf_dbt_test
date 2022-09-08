@@ -30,14 +30,14 @@ WITH workday -- the CTE view name
           , MANAGER_ID
           , JOB_TITLE
           , JOB_NM
-          , JOB_DESC
+          , JOB_DSC
           , WORK_COMP_CD
-          , WORK_COMP_DESC
+          , WORK_COMP_DSC
           , HIRE_DT
           , SRVC_DT
           , TRMNTN_DT
           , JOB_GROUP_ID
-          , JOB_GROUP_DESC
+          , JOB_GROUP_DSC
           , COMP_GRADE
           , PAY_GROUP_CD
           , GL_EXPENSE
@@ -82,7 +82,8 @@ WITH kronos -- the CTE view name
 
 WITH source 
      AS(
-     SELECT wd.EMP_NB
+     SELECT {{ surrogate_key_int(['EMP_NB']) }} AS DIM_EMPLOYEE_SK
+          , wd.EMP_NB
           , kr.PERSON_ID AS KRONOS_ID
           , rp.ADR_ID AS RP_ADR_ID
           , rp.USR_ID AS RP_USR_ID
@@ -103,19 +104,19 @@ WITH source
           , wd.LOCATION_NM
           , wd.HIRE_DT AS WD_HIRE_DT
           , kr.HIRE_DT AS KR_HIRE_DT
-          , rp.MC_EMP_HIRE_DATE AS RP_HIRE_DT
+          , rp.HIRE_DT AS RP_HIRE_DT
           , wd.EMP_TYPE
           , wd.PAY_TYPE
           , wd.TIME_TYPE
           , wd.POSITION_ID
-          , rp.MC_SUPERVISOR_ID
+          , rp.SUPERVISOR_ID
           , wd.MANAGER_ID
           , wd.JOB_TITLE
           , wd.JOB_NM
-          , wd.JOB_DESC
+          , wd.JOB_DSC
           , wd.WORK_COMP_CD
-          , wd.WORK_COMP_DESC
-          , rp.MC_EMP_COST
+          , wd.WORK_COMP_DSC
+          , rp.EMP_COST
           , rp.CLIENT_ID
           , rp.SUPER_USR_FLG
           , rp.INCENTIVE_FLG
@@ -126,16 +127,11 @@ WITH source
           , wd.SRVC_DT
           , wd.TRMNTN_DT
           , wd.JOB_GROUP_ID
-          , wd.JOB_GROUP_DESC
+          , wd.JOB_GROUP_DSC
           , wd.COMP_GRADE
           , wd.PAY_GROUP_CD
           , wd.GL_EXPENSE
           , wd.EMP_STATUS
-          , rp.SUPER_USR_FLG
-          , rp.INCENTIVE_FLG
-          , rp.DIFFERENTIAL_FLG
-          , rp.UNMEASURED_FLG
-          , rp.PAYROLL_FLG
           , rp.SRC_ID
        FROM workday wd
        JOIN kronos kr

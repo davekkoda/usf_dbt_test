@@ -22,14 +22,14 @@ WITH source -- the CTE view name
           , MANAGER_ID
           , JOB_TITLE
           , JOB_FAM_DESC AS JOB_NM
-          , JOB_FNCTN_LNG_DESC AS JOB_DESC
+          , JOB_FNCTN_LNG_DESC AS JOB_DSC
           , WORK_COMP_CD
-          , WORK_COMP_DESC
+          , WORK_COMP_DSC
           , HIRE_DT
           , SRVC_DT
           , TRMNTN_DT
           , EEO_JOB_GRP AS JOB_GROUP_ID
-          , EEO_JOB_GRP_DESC AS JOB_GROUP_DESC
+          , EEO_JOB_GRP_DESC AS JOB_GROUP_DSC
           , COMP_GRADE
           , PAY_GROUP AS PAY_GROUP_CD
           , GL_EXPENSE

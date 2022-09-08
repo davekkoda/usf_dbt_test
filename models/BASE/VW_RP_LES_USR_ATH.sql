@@ -8,8 +8,8 @@ WITH source -- the CTE view name
           , LOGIN_ID
           , USR_STS AS USR_STATUS
           , ACCT_EXPIR_DAT AS ACCOUNT_EXPIRE_DT
-          , SUPERVISOR_ID
-          , EMP_COST
+          , MC_SUPERVISOR_ID AS SUPERVISOR_ID
+          , MC_EMP_COST AS EMP_COST
           , MC_EMP_HIRE_DATE AS HIRE_DT
           , CLIENT_ID
           , SUPER_USR_FLG

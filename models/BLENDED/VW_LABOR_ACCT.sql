@@ -11,19 +11,7 @@
 WITH source -- the CTE view name
 	AS(
      SELECT {{ surrogate_key_int(['LABOR_ACCT_ID']) }} AS DIM_LABOR_ACCT_SK
-          , LABOR_ACCT_ID
-          , JOB_ID
-          , JOB_CD
-          , JOB_DSC
-          , DEPT_ID
-          , DEPT_CD
-          , DEPT_DSC
-          , REGION_ID
-          , REGION_CD
-          , REGION_DSC
-          , DEPT_ID
-          , DEPT_CD
-          , DEPT_DSC
+          , *
        FROM {{ ref('VW_KR_LABOR_ACCT') }}
    ORDER BY LABOR_ACCT_ID
     )

@@ -10,8 +10,8 @@
 
 WITH source -- the CTE view name
 	AS(
-     SELECT PERSONID AS PERSON_ID
-          , PERSONNUM AS EMP_NB
+     SELECT PERSONNUM AS EMP_NB
+          , PERSONID AS PERSON_ID
           , FIRSTNM AS FIRST_NM
           , LASTNM AS LAST_NM
           , MIDDLEINITIALNM AS MIDDLE_INTL

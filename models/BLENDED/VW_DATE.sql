@@ -12,9 +12,6 @@ WITH source -- the CTE view name
 	AS(
      SELECT TO_NUMBER(TO_CHAR(TO_DATE(CLNDR_DT), 'YYYYMMDD')) AS DIM_DATE_SK
           , *
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
        FROM {{ ref('VW_XD_TIME_CORP') }}
    ORDER BY DIM_DATE_SK
     )

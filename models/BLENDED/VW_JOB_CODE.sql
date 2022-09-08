@@ -78,9 +78,6 @@ WITH source -- the CTE view name
           , jg.EXT_ORDER_TIME
           , jg.INT_ORDER_TIME
           , jg.SRC_ID
-          , CURRENT_DATE() AS LAST_UPDATE_DT
-          , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID
-          , '{{ env_var(env_user) }}' AS LAST_MODIFIED_USER_ID
        FROM job_group jg
   LEFT JOIN area_group ag
          ON jg.AISLE_AREA_ID = ag.AISLE_AREA_ID

@@ -9,7 +9,7 @@
 {% endif %}
 
 WITH source -- the CTE view name
-	   AS(
+	      AS(
      SELECT *
           , CURRENT_DATE() AS LAST_UPDATE_DT
           , '{{ env_var(env_user) }}' AS MODIFIED_USER_ID

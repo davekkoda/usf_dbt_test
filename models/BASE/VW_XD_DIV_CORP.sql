@@ -2,8 +2,9 @@
 
 WITH source -- the CTE view name
 	AS(
-     SELECT DIV_SK AS MARKET_SK
-          , DIV_NBR AS MARKET_ID
+     SELECT 
+          -- , DIV_SK AS MARKET_SK
+          DIV_NBR AS MARKET_ID
           , DIV_NM AS MARKET_NM
           , DIV_PRSDNT_NM AS MARKET_PRSDNT_NM
           , DIV_TM_ZN AS MARKET_TM_ZN
